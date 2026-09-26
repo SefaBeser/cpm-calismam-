@@ -1,15 +1,18 @@
-# Kanıta Dayalı Hipertrofi Programı
+# Hipertrofi programı PDF’leri
 
-Tek dosyalık PDF: **5 gün** (çekiş / itiş / bacak / çekiş / itiş), 1 tam bacak günü, 4 günlük hafta yedeği, 187 cm / 94 kg beslenme sayıları.
+187 cm / 94 kg · 5 gün salon (1 bacak günü)
 
-## Dosya
+## Hangi dosyayı aç
 
-- [`Kanita_Dayali_Hipertrofi_Programi.pdf`](Kanita_Dayali_Hipertrofi_Programi.pdf)
-- [`generate_pdf.py`](generate_pdf.py)
-- [`days_data.py`](days_data.py)
+| Dosya | Ne işe yarar |
+|---|---|
+| [`Gunluk_Antrenman_Programi.pdf`](Gunluk_Antrenman_Programi.pdf) | Salonda aç. Her gün ayrı kart. |
+| [`Beslenme_ve_Takviye_Programi.pdf`](Beslenme_ve_Takviye_Programi.pdf) | Mutfak + takviye (kreatin, whey, rice cream). |
+| [`Kanita_Dayali_Hipertrofi_Programi.pdf`](Kanita_Dayali_Hipertrofi_Programi.pdf) | Neden bu hareket? Kaynakça. Evde oku. |
 
 ## Yeniden üretmek
 
 ```bash
 python3 generate_pdf.py
+python3 generate_salon_ve_beslenme.py
 ```
