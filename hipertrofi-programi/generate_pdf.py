@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """Kanıta dayalı hipertrofi programı PDF üreticisi."""
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from days_data import DAY1, DAY2, DAY3, DAY4, DAY5, FOUR_DAY, DAYS
+
 from reportlab.lib.colors import HexColor, white, Color
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4
@@ -274,7 +280,7 @@ def header_footer(canv, doc):
         canv.setFillColor(white)
         canv.setFont("DejaVu", 7.4)
         canv.drawString(16 * mm, PAGE_H - 8.2 * mm, "KANITA DAYALI HİPERTROFİ PROGRAMI")
-        canv.drawRightString(PAGE_W - 16 * mm, PAGE_H - 8.2 * mm, "Üst / Alt · 4 gün")
+        canv.drawRightString(PAGE_W - 16 * mm, PAGE_H - 8.2 * mm, "5 gün · 1 bacak · 4 gün yedek")
         canv.setFillColor(PALE)
         canv.rect(0, 0, PAGE_W, 10 * mm, fill=1, stroke=0)
         canv.setFillColor(MUTED)
@@ -300,8 +306,8 @@ def cover_page(canv, doc):
     canv.drawCentredString(PAGE_W / 2, PAGE_H - 58 * mm, "Hipertrofi Programı")
     canv.setFont("DejaVu", 11)
     canv.setFillColor(HexColor("#D9E4F2"))
-    canv.drawCentredString(PAGE_W / 2, PAGE_H - 72 * mm, "4 gün  ·  Üst A / Alt A / Üst B / Alt B")
-    canv.drawCentredString(PAGE_W / 2, PAGE_H - 79 * mm, "Orijinal sırt–biceps şablonunun fotoğrafa göre revizyonu")
+    canv.drawCentredString(PAGE_W / 2, PAGE_H - 72 * mm, "5 gün  ·  Çekiş / İtiş / Bacak / Çekiş / İtiş")
+    canv.drawCentredString(PAGE_W / 2, PAGE_H - 79 * mm, "187 cm · 94 kg  ·  4 günlük hafta yedeği ile")
 
     y = PAGE_H * 0.38 - 16 * mm
     canv.setFillColor(white)
@@ -309,7 +315,7 @@ def cover_page(canv, doc):
     canv.drawString(22 * mm, y, "Bu belge neyi içerir?")
     canv.setFont("DejaVu", 8.4)
     lines = [
-        "• Haftanın 4 antrenman günü (set, tekrar, dinlenme, RIR, yedek hareket)",
+        "• Haftanın 5 antrenman günü (1 tam bacak) + 4 günlük yedek",
         "• Her hareketin programa alınma gerekçesi ve kanıt derecesi",
         "• Orijinal programdan çıkarılan teknikler ve nedenleri",
         "• Beslenme, adım sayısı, ilerleme ve 8 haftalık takip notları",
@@ -328,563 +334,8 @@ def cover_page(canv, doc):
 
 
 # ---------------------------------------------------------------------------
-# Program data
+# Kaynakça
 # ---------------------------------------------------------------------------
-
-DAY1 = {
-    "title": "4. GÜN 1 — ÜST A",
-    "sub": "Öncelik: göğüs, yan omuz, sırt kalınlığı  ·  65–80 dk",
-    "intro": (
-        "Fotoğrafta yan deltoid ve göğüs hattı bel çevresine göre geride; sırtta ise "
-        "kalınlık (row) genişlikten (pulldown) ayrı bir ihtiyaç. Bu gün yatay itiş + yatay çekiş "
-        "üzerine kuruludur. Çok eklemli hareketler önce gelir; çünkü kuvvet kazancı seansın "
-        "başındaki harekette daha büyüktür, hipertrofi ise sıra değişince benzer kalır [19]. "
-        "Yan omuz, izole hareket olarak günün erken ikinci yarısına alınmıştır; en sona "
-        "bırakılırsa yorgun omuzla form bozulur."
-    ),
-    "ex": [
-        {
-            "name": "Incline press (makine veya dumbbell, ~30°)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5–3 dk",
-            "rir": "1–3",
-            "target": "Üst pektoralis, ön deltoid, triceps",
-            "why": (
-                "Klavikular (üst) pektoralis, eğimli press’te düz press’e göre daha yüksek EMG "
-                "gösterir; 30° civarı üst göğsü vurgularken omuzu 45–56° kadar öne almaz [15]. "
-                "Tam/uzun ROM hipertrofi için kısmi (kısa kas boyu) ROM’dan en azından eşit, "
-                "çoğu ölçüde daha iyidir [9]. Ağır yük (≥ yaklaşık 8–12 tekrarlık zor set) hem "
-                "kuvvet hem büyüme uyarısı verir [1]."
-            ),
-            "cues": (
-                "Kürek kemikleri bench’e sabit, ayak tabanı yerde. Bar/dumbbell memenin üst–orta "
-                "hizasına insin. Dirsekler 90°den fazla açılmasın. Partnerli zorlanmış tekrar yok."
-            ),
-            "swap": "Smith incline veya dip yerine bu kalır; omuz rahatsızsa makine tercih et.",
-            "grade": "A (hacim/ROM/yük ilkeleri) + C (açı EMG’si). Incline’ın üst göğsü büyüttüğüne dair doğrudan MRI RCT’si sınırlıdır; EMG + bölgesel hipertrofi mantığına dayanır.",
-        },
-        {
-            "name": "Göğüs destekli row (chest-supported / makine)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5–3 dk",
-            "rir": "1–2",
-            "target": "Orta trap, romboid, lat, arka deltoid",
-            "why": (
-                "Yatay çekiş üst sırt kalınlığını hedefler. Ayakta öne eğilerek row, lomber "
-                "omurgaya üç row varyasyonu içinde en yüksek kompresyonu verir [14]. Fotoğrafta "
-                "pelvis önde ve bel hattı yüklü durduğu için göğüs destekli varyant, sırt kasını "
-                "uyarırken bel momentini düşürür. Bu bir ‘daha çok hipertrofi’ iddiası değil, "
-                "aynı çekiş uyarısını daha düşük bel yüküyle vermek içindir [14]."
-            ),
-            "cues": (
-                "Göğüs yastığa yapışık. Çekiş dirsekle, bar/kablo alt göğüs–üst karın hizasına. "
-                "Bel yuvarlama ve ‘cheat’ yok. 1–2 tekrar yedekte bitir [6,7]."
-            ),
-            "swap": "Göğüs destekli T-bar, chest-supported dumbbell row, seated machine row. "
-                    "Ayakta barbell row ancak bel nötr ve cheat’sizse yedektir.",
-            "grade": "A (çekiş hacmi) + C (omurga yükü biyomekaniği).",
-        },
-        {
-            "name": "Kablo lateral raise",
-            "sets": "4",
-            "reps": "12–15",
-            "rest": "75–90 sn",
-            "rir": "1–2",
-            "target": "Yan (orta) deltoid",
-            "why": (
-                "Fotoğrafta en yüksek görsel getirisi olan üst vücut boşluğu yan omuzdur; bel "
-                "çevresi değişmeden bile omuz genişliği belin daha dar görünmesini sağlar. "
-                "Lateral raise, orta deltoidi front raise’den daha seçici uyarır; front raise "
-                "ön deltoid ve klavikular pektoralisi öne çıkarır [16]. Orijinal programda yan "
-                "omuz haftalık ~4 settir; hipertrofi için kas başına ~10+ ağır set/hafta daha "
-                "tutarlı sonuç verir [1,2]. Bu 4 set + Gün 3’teki 3 set ≈ 7 doğrudan set + press "
-                "katkısıdır."
-            ),
-            "cues": (
-                "Kolu ~30° önde (‘scaption’), serçe parmak hafif yukarı. 90°yi aşma. Gövde sallanmasın. "
-                "Kablo, set boyunca gerilimi kesmez; dumbbell yedektir."
-            ),
-            "swap": "Seated dumbbell lateral raise, makine lateral. Upright row yok (omuz sıkışması riski, kanıt tartışmalı; gerek yok).",
-            "grade": "A (haftalık hacim) + C (deltoid başı EMG). Orta deltoid hipertrofisi için lateral raise’in press’ten üstünlüğünü gösteren büyük RCT yoktur; seçicilik EMG’ye dayanır.",
-        },
-        {
-            "name": "Pec deck veya kablo fly (gerilme vurgulu)",
-            "sets": "2",
-            "reps": "12–15",
-            "rest": "75–90 sn",
-            "rir": "0–2",
-            "target": "Pektoralis (uzun kas boyu)",
-            "why": (
-                "İzolasyon, press’in yetiştiremediği pektoralis hacmini tamamlar (~10 set/hafta "
-                "hedefi) [1,2]. Fly’da uyaran, kolların önde birleştiği ‘sıkış’tan çok göğsün "
-                "gerildiği açık pozisyondadır; uzun kas boyunda çalışan kısmi/tam ROM, kısa "
-                "kas boyundaki kısmi ROM’dan üstündür [9,10]. Tükenişe en yakın set burada "
-                "olabilir; makine/kablo, serbest ağırlığa göre daha stabildir [1,6]."
-            ),
-            "cues": (
-                "Dirsek hafif kırık, omuz öne savrulmasın. Gerilmede 1 sn kontrol; tepede kiloları "
-                "çakma. 3 sn negatif şart değil; kontrol yeter (TUT tek başına sonucu değiştirmiyor) [1]."
-            ),
-            "swap": "Cable crossover, dumbbell fly (sadece omuz rahatsa, alt noktada kontrol).",
-            "grade": "A (hacim + ROM ilkeleri). Fly vs press hipertrofi farkı net değildir; press zaten vardır, fly hacim ve gerilme için eklenir.",
-        },
-        {
-            "name": "Face pull (ip, yüz hizası)",
-            "sets": "3",
-            "reps": "12–15",
-            "rest": "75–90 sn",
-            "rir": "1–2",
-            "target": "Arka deltoid, dış rotatorlar, orta trap",
-            "why": (
-                "Arkadan sırt düz ve arka omuz silik. Yatay abdüksiyon + dış rotasyon, "
-                "glenohumeral ve skapular kaslar için klinik olarak kullanılan bir örüntüdür [28]. "
-                "Bu hareketin pektoralis press hacmine karşı ‘omuz sağlığı RCT’si’ yoktur; "
-                "gerekçe denge ve arka zincir hacmidir. Hipertrofi kanıtı daha doğrudan olan "
-                "yedek, reverse pec deck’tir (Gün 3)."
-            ),
-            "cues": (
-                "İp kulak hizasına, baş ‘gagalanmasın’. Son noktada dış rotasyon (eller kulak arkası "
-                "gibi). Bel kayması yok. Ağır yükle momentum yok."
-            ),
-            "swap": "Reverse pec deck, bent-over reverse fly.",
-            "grade": "D/C (klinik omuz literatürü + EMG mantığı). Hipertrofi RCT’si zayıf; programda düşük maliyetli sigorta olarak durur.",
-        },
-        {
-            "name": "Overhead kablo triceps extension",
-            "sets": "3",
-            "reps": "10–12",
-            "rest": "90 sn",
-            "rir": "1–2",
-            "target": "Triceps, özellikle uzun baş",
-            "why": (
-                "Orijinal program triceps’i yalnızca pushdown ile (kısa–orta kas boyu) bitirir. "
-                "MRI’lı 12 haftalık çapraz-kol çalışmasında, baş üstü dirsek ekstansiyonu nötr "
-                "kola göre triceps hacmini belirgin daha fazla artırmıştır (uzun baş +28,5% vs "
-                "+19,6%; tüm triceps +19,9% vs +13,9%), üstelik daha düşük mutlak yükle [11]. "
-                "Bu, programdaki en doğrudan hipertrofi RCT’sine dayanan izolasyon seçimidir."
-            ),
-            "cues": (
-                "Üst kol kulağın yanında sabit, sadece dirsek uzasın. Bel çukuru artmasın; kaburgalar "
-                "inik. Omuz ağrırsa 1 kol ve daha dik açı dene."
-            ),
-            "swap": "Overhead dumbbell extension (iki el), kablo pushdown yalnızca yedek (Gün 3’te yok; overhead öncelikli).",
-            "grade": "B (Maeo 2023, MRI, 12 hafta).",
-        },
-    ],
-}
-
-DAY2 = {
-    "title": "5. GÜN 2 — ALT A",
-    "sub": "Öncelik: quadriceps, kalça, arka zincir  ·  60–75 dk",
-    "intro": (
-        "Paylaştığın orijinal programda bacak yoktu. DSÖ ve ACSM, tüm büyük kas gruplarının "
-        "haftada en az iki gün çalışmasını ister [1,24]. Squat paterni quadriceps ve addüktörde "
-        "hip thrust’tan daha fazla kesit artışı üretmiştir; kalça hipertrofisi ise squat ile "
-        "hip thrust arasında benzerdir [13]. Bu gün squat/press paterni, ertesi bacak günü "
-        "mentşe + tek bacaktır. Böylece bacak da sırt gibi haftada 2 kez uyarılır [4,5]."
-    ),
-    "ex": [
-        {
-            "name": "Leg press (veya goblet / makine squat)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "3 dk",
-            "rir": "1–3",
-            "target": "Quadriceps, glute, addüktör",
-            "why": (
-                "Geri dönüşte serbest barbell squat zorunlu değildir; ACSM 2026 ekipman türünün "
-                "(makine vs serbest) sonuçları tutarlı biçimde değiştirmediğini belirtir [1]. "
-                "Leg press, sırtüstü destekle yüksek bacak hacmini bel shear’i azaltarak verir. "
-                "Plotkin ve arkadaşlarında squat, kalçada hip thrust kadar büyümüş, uyluk önü ve "
-                "addüktörde üstün çıkmıştır [13]. Derin, kontrollü ROM tercih edilir [9]."
-            ),
-            "cues": (
-                "Ayaklar omuz genişliği, parmaklar hafif dış. Alt noktada bel yastıktan kalkmasın. "
-                "Dizler parmak yönünde. Kilidi patlatarak çarpma yok."
-            ),
-            "swap": "Goblet squat, hack squat, smith squat (topuk hafif yüksekse ROM kolaylaşır). "
-                    "Barbell back squat ancak bel ve teknik hazırsa.",
-            "grade": "A (alt vücut sıklığı/hacmi) + B (squat paterni hipertrofisi, Plotkin 2023).",
-        },
-        {
-            "name": "Romanian deadlift (dumbbell veya bar)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5–3 dk",
-            "rir": "2–3",
-            "target": "Hamstring, glute, erektör",
-            "why": (
-                "Kalça mentşesi hamstringi uzun kas boyunda yükler; bu, kısa kas boyuna göre "
-                "hipertrofi için avantajlı bir koşuldur [9,12]. Fotoğrafta kalça projeksiyonu "
-                "zayıf ve pelvis önde duruyor; glute–hamstring kuvveti hem görüntü hem mentşe "
-                "kontrolü için gerekir. Bu hareket ‘anterior pelvik tilt’i tedavi ettiğini iddia "
-                "etmez; o iddianın kanıtı zayıftır. Amaç hipertrofi ve menteşe becerisidir."
-            ),
-            "cues": (
-                "Diz az kırık ve sabit. Bar/dumbbell bacağı sıyırarak iner, sırt nötr. Gerilmeyi "
-                "hamstringde hisset; belde yuvarlama yok. İlk haftalar hafif, RIR 3."
-            ),
-            "swap": "45° hiperextension (kalça bükerek, belde kırma yok), cable pull-through.",
-            "grade": "A (uzun kas boyu) + C/D (mentşe biyomekaniği). RDL vs leg curl hipertrofi RCT’si sınırlıdır; ikisi de programdadır.",
-        },
-        {
-            "name": "Walking lunge veya reverse lunge",
-            "sets": "2",
-            "reps": "8–10 / bacak",
-            "rest": "2 dk",
-            "rir": "1–3",
-            "target": "Quad, glute, tek bacak kontrolü",
-            "why": (
-                "Tek bacak squat varyantları, çift bacak squat ile benzer kuvvet–beceri "
-                "adaptasyonları üretebilir [26]. Fotoğrafta simetri ve kalça uzantısı için "
-                "unilateral iş, bilateral press’in boşluğunu doldurur. Hacim düşük tutulur "
-                "(2 set); DOMS’u ilk haftalarda patlatmamak için."
-            ),
-            "cues": (
-                "Adım çok uzun olmasın. Ön diz öne kaçmasın, gövde dik. Denge bozulursa yerinde "
-                "reverse lunge’a geç. Dumbbell yanlarda."
-            ),
-            "swap": "Reverse lunge, step-up (diz yüksekliği kontrolü), goblet split squat.",
-            "grade": "B (unilateral vs bilateral, Speirs 2016 — ragbi; hipertrofi ikincil) + A (bacak hacmi).",
-        },
-        {
-            "name": "Leg extension",
-            "sets": "2",
-            "reps": "12–15",
-            "rest": "75–90 sn",
-            "rir": "0–2",
-            "target": "Quadriceps (rektus femoris dahil)",
-            "why": (
-                "Compound squat paterni rektus femorisi (kalça fleksörü olan baş) her zaman "
-                "yeterince uzatmaz. Leg extension, dizi izole ederek quad hacmini ~10 set/hafta "
-                "hedefine tamamlar [1,2]. Son setler 0–1 RIR olabilir; makine stabildir [6]."
-            ),
-            "cues": "Sırt yaslı, ayak bileği pad’in arkasında. Üstte 0,5 sn tut, 2 sn indir. Kalça pad’den kalkmasın.",
-            "swap": "Yoksa goblet squat’a 1 set ekle. Diz ağrısında ROM’u kısalt, yükü düşür.",
-            "grade": "A (hacim tamamlama). Rektus femoris için extension’ın squat’tan üstün olabileceğine dair EMG/bölgesel veriler vardır; bu programda gerekçe hacimdir.",
-        },
-        {
-            "name": "Standing calf raise (tam gerilme)",
-            "sets": "3",
-            "reps": "10–15",
-            "rest": "75–90 sn",
-            "rir": "0–2",
-            "target": "Gastrocnemius",
-            "why": (
-                "Orijinal programda calf yok. Kassiano ve arkadaşları, baldırda uzun kas boyundaki "
-                "(gerilmiş) kısmi ROM’un tam ROM ve kısa kas boyu kısmisinden daha fazla medial "
-                "gastrocnemius büyümesi ürettiğini gösterdi [10]. Pratik çıkarım: topuğu iyice "
-                "indir, gerilmeyi kaybetme; sadece parmak ucunda zıplama yapma."
-            ),
-            "cues": (
-                "Basamağın ucunda, diz neredeyse kilit. Altta 1 sn gerilme. Zıplama yok. "
-                "Ağırlık dizleri içeri yıkmasın."
-            ),
-            "swap": "Leg press calf, smith calf. Seated calf Gün 4’te (soleus).",
-            "grade": "B (Kassiano 2023, ultrason, 8 hafta) + A (kas grubunu çalıştır).",
-        },
-        {
-            "name": "Plank",
-            "sets": "3",
-            "reps": "30–45 sn",
-            "rest": "60 sn",
-            "rir": "—",
-            "target": "Anterior core (anti-ekstansiyon)",
-            "why": (
-                "Karın hareketi bel çevresi yağını yakmaz (spot reduction yok). Crunch/sit-up "
-                "lomber kompresyonu yüksek egzersizlerdendir [27]. Plank, omurgayı nötr tutarak "
-                "dayanıklılık verir ve orijinal programındaki ‘omurga düz’ notuyla uyumludur. "
-                "Rectus hipertrofisi için Gün 4’te düşük yükte kablo crunch vardır; bu günün "
-                "işi anti-ekstansiyondur."
-            ),
-            "cues": (
-                "Dirsek omuz altında, kalça ne çökme ne çadır. Kaburga inik. 45 sn kolaysa yük "
-                "(plaka sırtta) veya 3-nokta plank; tekrarı 90–120 sn’ye şişirme."
-            ),
-            "swap": "Dead bug, ab wheel (sadece nötr bel korunursa).",
-            "grade": "C (omurga yükü) + D (klinik core). Hipertrofi için plank crunch’tan üstün değildir.",
-        },
-    ],
-}
-
-DAY3 = {
-    "title": "6. GÜN 3 — ÜST B  (SIRT & BICEPS ÖNCELİKLİ)",
-    "sub": "Öncelik: lat genişliği, dikey press, biceps  ·  65–80 dk  ·  keyif aldığın güne en yakın gün",
-    "intro": (
-        "Bu gün, yaptığın ve keyif aldığın sırt–biceps şablonunun kanıta göre sadeleştirilmiş "
-        "halidir. Lat pulldown tam ROM ile kalır [9,17]. Cheat barbell row, her sette drop, "
-        "FST-7 ve ‘agresif tekrar’ çıkarıldı; mekanik gerilim hipertrofinin ana sürücüsüdür, "
-        "metabolik şişirme teknikleri eşit hacimde üstün değildir [20,29]. Göğüs bu günde 3 set "
-        "makine press ile ikinci kez uyarılır ki sıklık 2x olsun [4,5]."
-    ),
-    "ex": [
-        {
-            "name": "Lat pulldown (orta pronated tutuş, tam ROM)",
-            "sets": "3 çalışma (+1–2 ısınma)",
-            "reps": "8–12",
-            "rest": "2,5–3 dk",
-            "rir": "1–2",
-            "target": "Latissimus, biceps, alt trap",
-            "why": (
-                "V kesiti için en doğrudan dikey çekiş. Orta tutuş (yaklaşık 1,5× omuz genişliği) "
-                "ile dar/geniş tutuş arasında lat EMG’si büyük ölçüde benzerdir; orta tutuş biraz "
-                "daha yüksek 6RM yük taşır [17]. Orijinal 2. sırt günündeki ‘full stretch yok, "
-                "ROM %80’ notu literatürün tersinedir: tam veya uzun ROM, kısa kısmi ROM’dan "
-                "üstün veya eşittir [9]. Tükeniş her sette şart değildir [1,6,7]."
-            ),
-            "cues": (
-                "Göğüs açık, hafif geri yat. Bar üst göğse, dirsekler aşağı–arkaya. Tepede kürek "
-                "yukarı kaçmadan lat’i esnet. Sallama yok. 2 ısınma seti 10 tekrar hafif."
-            ),
-            "swap": "Nötr tutuş V-bar pulldown, assisted pull-up. Behind-the-neck pulldown yok.",
-            "grade": "A (ROM, sıklık) + C (tutuş EMG). Pulldown vs pull-up hipertrofi farkı pratikte küçük kabul edilir [1].",
-        },
-        {
-            "name": "Göğüs press makinesi (düz veya hafif incline)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5 dk",
-            "rir": "1–2",
-            "target": "Pektoralis, ön deltoid, triceps",
-            "why": (
-                "Göğsü haftada ikinci kez uyarmak için. Hacim eşitlendiğinde sıklığın kendisi "
-                "sihir değildir ama 2x dağıtım toparlanmayı ve performansını kolaylaştırır [5]. "
-                "Makine, yorgun sırt gününde omuz stabilitesini serbest barbell’den daha az "
-                "sorgulatır [1]. Partnerli negatif/forced rep yok [6]."
-            ),
-            "cues": "Kürek arkada, göğüs yukarı. Tam in, kilidi çarpmadan uzat. Omuz öne yuvarlanmasın.",
-            "swap": "Dumbbell flat press, Smith press. Dip ancak omuz rahatsa.",
-            "grade": "A (sıklık + hacim). Hareket seçimi ekipmandan bağımsız [1].",
-        },
-        {
-            "name": "Tek kol kablo row",
-            "sets": "3",
-            "reps": "8–10 / kol",
-            "rest": "90–120 sn",
-            "rir": "1–2",
-            "target": "Lat (kalça hizası çekiş), orta sırt",
-            "why": (
-                "Orijinal programındaki en mantıklı çekişlerden biri; kaldı. Tek kol, sağ–sol "
-                "farkını görünür kılar ve gövde rotasyonunu kontrollü anti-rotasyon olarak yükler "
-                "[14]. Kablo, hareketin başında (lat uzunken) gerilimi kesmez; bu, uzun kas boyu "
-                "ilkesiyle uyumludur [9]. ‘Lat için kambur’ cue’u bel fleksiyonuna çevrilmemeli."
-            ),
-            "cues": (
-                "Göğüs açık, bel nötr. El kalça yanına, dirsek vücuttan geçmesin. Gerilmede omuz "
-                "önden kontrolsüz gitmesin. Sol ve sağ ayrı sayılır."
-            ),
-            "swap": "Tek kol dumbbell row (bench destekli), seated D-handle row.",
-            "grade": "A (çekiş hacmi, ROM) + C (tek kol row omurga/torsiyon [14]).",
-        },
-        {
-            "name": "Kablo veya dumbbell lateral raise",
-            "sets": "3",
-            "reps": "12–15",
-            "rest": "75–90 sn",
-            "rir": "1–2",
-            "target": "Yan deltoid",
-            "why": (
-                "Yan omuz hacmini ikinci güne yaymak [4]. Coratella ve arkadaşları, lateral raise "
-                "varyantlarının orta deltoidi front raise’den daha iyi hedeflediğini gösterdi [16]. "
-                "Orijinal omuz günündeki 2 set, bu profil için azdır [2]."
-            ),
-            "cues": "Gün 1 ile aynı teknik. Yorgunlukta kilosu düşer, form düşmez.",
-            "swap": "Makine lateral.",
-            "grade": "A + C [16].",
-        },
-        {
-            "name": "Düz kolla kablo pulldown (yüksek kablo)",
-            "sets": "2",
-            "reps": "10–12",
-            "rest": "75 sn",
-            "rir": "1–2",
-            "target": "Lat / teres (omuz ekstansiyonu)",
-            "why": (
-                "Orijinal rope pullover’ın sade hali: 2 düz set, drop yok. Uyarı: bench üstünde "
-                "barbell pullover EMG’sinde pektoralis latissimus’tan daha aktif bulunmuştur [18]. "
-                "Bu yüzden hareket, barı baş arkasına yatırmadan, yüksek kablodan düz kolla aşağı "
-                "çekiş (omuz ekstansiyonu) olarak yapılır. Hipertrofi RCT’si yoktur; lat hacmini "
-                "tamamlayan aksesuardır. Kanıt yetersizse pulldown’a 1 set eklemek eşdeğerdir."
-            ),
-            "cues": (
-                "Dirsek neredeyse kilit, gövde 15–20° öne. İpi uyluk üstüne indir, lat’i kısalt. "
-                "Bel çukuru yok. Drop set yok [20]."
-            ),
-            "swap": "Ek 1–2 set lat pulldown. Barbell pullover şart değil [18].",
-            "grade": "C/D. Barbell pullover EMG’si pektoralis lehinedir [18]; kablo varyantı biyomekanik çıkarım.",
-        },
-        {
-            "name": "Dumbbell supinated curl",
-            "sets": "3",
-            "reps": "10–12",
-            "rest": "75–90 sn",
-            "rir": "1–2",
-            "target": "Biceps brachii",
-            "why": (
-                "Çekişler biceps’e dolaylı hacim verir; doğrudan 8–12 set/hafta yeter [2]. "
-                "Supinasyon biceps’i nötr/hammer tutuştan daha spesifik yükler. Orijinaldeki 6 "
-                "doğrudan set + 2. gün drop’ları fazlaydı; görsel darboğaz biceps değil. "
-                "Momentum hipertrofiye mekanik gerilim kaybettirir [29]."
-            ),
-            "cues": "Dirsek gövde yanında. 1 sn sıkış şart değil. Sallanma yok. Her iki kol simetrik.",
-            "swap": "Kablo curl, barbell curl (bilek rahatsa).",
-            "grade": "A (hacim). Tutuş farkı büyük ölçüde anatomi/EMG’dir; büyüme RCT’si sınırlı.",
-        },
-        {
-            "name": "Hammer curl",
-            "sets": "2",
-            "reps": "10–12",
-            "rest": "75 sn",
-            "rir": "1–2",
-            "target": "Brachialis, brachioradialis",
-            "why": (
-                "Nötr tutuş brachialis ve önkolu öne çıkarır; kol kalınlığına biceps uzun başından "
-                "farklı katkı yapar. Orijinaldeki son set drop çıkarılmıştır; drop set eşit "
-                "hacimde geleneksel setten üstün hipertrofi vermez, yalnızca zaman kazandırır [20]."
-            ),
-            "cues": "Başparmak yukarı, dirsek sabit. Drop yok.",
-            "swap": "Kablo hammer / rope curl.",
-            "grade": "A (hacim, drop set meta-analiz [20]) + C (tutuş anatomisi).",
-        },
-        {
-            "name": "Reverse pec deck veya reverse fly",
-            "sets": "2",
-            "reps": "12–15",
-            "rest": "75 sn",
-            "rir": "0–2",
-            "target": "Arka deltoid",
-            "why": (
-                "Arka deltoid, row’larda ikinci plandadır. İzole yatay abdüksiyon onu doğrudan "
-                "yükler. Face pull (Gün 1) daha çok dış rotasyon/skapula; bu hareket daha doğrudan "
-                "hipertrofi izolasyonudur. Toplam arka omuz hacmi row’larla birlikte ~10 sete yaklaşır [2]."
-            ),
-            "cues": "Kollar hafif kırık, göğüs yastığa. Kürekleri ‘sıkıştırayım’ diye shrugging yok.",
-            "swap": "Kablo reverse fly.",
-            "grade": "A (izolasyon hacmi) + C (deltoid başı seçiciliği [16]).",
-        },
-    ],
-}
-
-DAY4 = {
-    "title": "7. GÜN 4 — ALT B + KARIN",
-    "sub": "Öncelik: kalça, hamstring, tek bacak, baldır, karın  ·  60–75 dk",
-    "intro": (
-        "İkinci bacak günü sıklık ilkesini tamamlar [4,24]. Hip thrust kalça kesitini squat kadar "
-        "büyütür ama quad/addüktörde squat kadar işe yaramaz; bu yüzden tek başına bacak günü "
-        "değildir, Gün 2’nin tamamlayıcısıdır [13]. Hamstring için oturarak leg curl, yüzüstü "
-        "curl’den daha fazla kas hacmi artışı vermiştir [12]."
-    ),
-    "ex": [
-        {
-            "name": "Hip thrust (bar, makine veya glute bridge)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5–3 dk",
-            "rir": "1–2",
-            "target": "Gluteus maximus",
-            "why": (
-                "9 haftalık MRI çalışmasında hip thrust ve back squat, gluteus maximus kesitinde "
-                "benzer büyüme verdi; squat quad ve addüktörde öndeydi, kuvvet ise harekete özgüydü "
-                "[13]. EMG’si yüksek diye hip thrust ‘daha iyi kalça hareketi’ değildir — büyüme "
-                "benzerdir. Fotoğrafta kalça silik olduğu için hem squat paterni hem thrust vardır."
-            ),
-            "cues": (
-                "Kürek bench’te, çene göğüste. Üstte kalça tam açılır, bel aşırı çukurlaşmaz. "
-                "İtme topukla. Pad kalça kemiğinde."
-            ),
-            "swap": "Makine hip thrust, tek bacak glute bridge, kablo kickback (yalnızca thrust yoksa, daha zayıf yedek).",
-            "grade": "B (Plotkin 2023, MRI).",
-        },
-        {
-            "name": "Oturarak leg curl (seated)",
-            "sets": "3",
-            "reps": "10–12",
-            "rest": "90–120 sn",
-            "rir": "0–2",
-            "target": "Hamstring (uzun kas boyu)",
-            "why": (
-                "Kalça fleksiyondayken (oturarak) biartiküler hamstringler daha uzundur. 12 haftalık "
-                "MRI çalışmasında seated curl, prone curl’e göre tüm hamstring hacmini daha fazla "
-                "artırdı (+14% vs +9%) [12]. Yüzüstü curl yok değil, seated tercih."
-            ),
-            "cues": "Kalça oturağa yapışık. Tam uzat, kontrollü bük. Bel pad’den kalkmasın.",
-            "swap": "Lying curl yalnızca seated yoksa. Nordic (ileri düzey, yüksek DOMS) şart değil.",
-            "grade": "B (Maeo 2021, MRI, 12 hafta).",
-        },
-        {
-            "name": "Bulgarian split squat",
-            "sets": "3",
-            "reps": "8–10 / bacak",
-            "rest": "2 dk",
-            "rir": "1–3",
-            "target": "Quad, glute, denge",
-            "why": (
-                "Tek bacak squat, akademi ragbi oyuncularında çift bacak squat ile karşılaştırılabilir "
-                "kuvvet ve sprint/agility katkısı vermiştir [26]. Bireysel fotoğrafta unilateral iş, "
-                "sağ–sol farkı ve kalça uzantısı için ikinci bacak gününün compound’udur. İlk 2 hafta "
-                "goblet ile öğren, sonra dumbbell."
-            ),
-            "cues": (
-                "Arka ayak düşük bench’te, gövde hafif öne. Ön diz öne savrulmasın. 10 cm’lik adım "
-                "farkı diz vs kalça vurgusunu değiştirir; diz rahatsa gövdeyi biraz daha öne al."
-            ),
-            "swap": "Reverse lunge, step-up. Denge çok bozulursa TRX / tutunarak split squat.",
-            "grade": "B (Speirs 2016; hipertrofi birincil sonlanım değil) + A (bacak sıklığı).",
-        },
-        {
-            "name": "Seated calf raise",
-            "sets": "3",
-            "reps": "12–15",
-            "rest": "75 sn",
-            "rir": "0–2",
-            "target": "Soleus (diz bükülü)",
-            "why": (
-                "Diz bükülüyken gastrocnemius gevşer, soleus öne çıkar (anatomi). Gün 2 standing "
-                "gastrocnemius, bu gün soleus. Baldır da diğer kaslar gibi haftada 2 uyaran ister [4]. "
-                "Alt noktada gerilme korunur [10]."
-            ),
-            "cues": "Tam in, zıplama yok. Üstte 0,5 sn. Ağırlıkla form bozulmasın.",
-            "swap": "Standing calf’ın 2. varyantı, diz 20–30° kırık tutulursa.",
-            "grade": "A (sıklık) + B (uzun kas boyu baldır [10]) + anatomi (soleus).",
-        },
-        {
-            "name": "Kablo crunch",
-            "sets": "2",
-            "reps": "12–15",
-            "rest": "60–75 sn",
-            "rir": "1–3",
-            "target": "Rectus abdominis",
-            "why": (
-                "Orijinal 3×20 ağır olmayan crunch makul; 2×12–15’e çekildi çünkü bel çevresi "
-                "yağ kaybı crunch hacmiyle olmaz [23]. Hipertrofi için orta yük, omurga fleksiyanı "
-                "kalçadan değil kaburgayı pelvis’e yaklaştırarak yapılır. Sit-up tipi yüksek "
-                "kompresyonlu varyantlardan kaçın [27]. Asla ağır ‘ego’ crunch yok — orijinal not doğru."
-            ),
-            "cues": "Kalça sabit, hareket göğüs kemiğini kasığa yaklaştırmak. Boyun çekilmesin.",
-            "swap": "Machine crunch. Sit-up / straight-leg throw-down yok.",
-            "grade": "C (omurga yükü [27]) + A (karın da bir kastır ama spot reduction yok).",
-        },
-        {
-            "name": "Lying leg raise (kontrollü)",
-            "sets": "2",
-            "reps": "10–15",
-            "rest": "60–75 sn",
-            "rir": "1–3",
-            "target": "Alt rectus, kalça fleksörleri",
-            "why": (
-                "Orijinal programdaki 3. karın hareketi sadeleştirilerek kaldı. Bacak yere "
-                "bırakılmadan gerilim korunur (orijinal not). Asıl bel-inceltme aracı bu değildir; "
-                "haftalık adım ve enerji dengesi bel çevresini değiştirir [23,24]."
-            ),
-            "cues": "Eller kalça altında. Bel yere basılı. Bacak inerken yere değmeden dur. Sallanma yok.",
-            "swap": "Captain’s chair knee raise. Bel ağırsa dead bug.",
-            "grade": "D/C. Karın hipertrofisi için yeterli; yağ kaybı iddiası yok.",
-        },
-    ],
-}
-
 REFS = [
     "[1] Mcleod JC ve ark. ACSM Position Stand. Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults: An Overview of Reviews. Med Sci Sports Exerc. 2026;58(4):851–872. PMID: 41843416. PMC: PMC12965823. https://pmc.ncbi.nlm.nih.gov/articles/PMC12965823/",
     "[2] Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis. J Sports Sci. 2017;35(11):1073–1082. PMID: 27433992.",
@@ -983,8 +434,8 @@ def build_story():
         P(
             "Ön/yan/arka karelerde duran taban: trapez, kolda ve göğüste eski antrenman izi, kullanılabilir "
             "omuz iskeleti. Görüntüyü yöneten unsur bel çevresi yumuşak dokusu. Kas olarak geride kalanlar: "
-            "<b>lat genişliği, yan deltoid, bacak ve kalça, üst sırt kalınlığı</b>. Biceps görsel darboğaz değil; "
-            "bu yüzden orijinal 6–8 curl seti kısaltıldı."
+            "<b>lat genişliği, yan deltoid, bacak ve kalça, üst sırt kalınlığı</b>. Biceps görsel darboğaz değil. "
+            "<b>Boy 187 cm, kilo 94 kg</b> (BMI ≈ 26,9). Protein ve enerji hedefleri bölüm 12’de bu sayılara göredir."
         )
     )
     story.append(
@@ -994,7 +445,7 @@ def build_story():
                 [
                     "Bacak + kalça",
                     "Şort hattı dolgun değil; orijinal programda yok",
-                    "Haftada 2 alt vücut günü",
+                    "Bacak 1 tam gün (hacim o seansa yığılır)",
                     "[1,13,24]",
                 ],
                 [
@@ -1028,12 +479,12 @@ def build_story():
     story.append(Spacer(1, 2.5 * mm))
     story.append(
         P(
-            "<b>Neden üst/alt 4 gün, neden 4× üst vücut değil?</b> Hipertrofi meta-analizleri kası "
-            "haftada en az 2 kez çalıştırmayı destekler; hacim eşitlenince sıklığın kendisi küçük "
-            "kalır ama 2x dağıtım yüksek hacmi taşınabilir kılar [4,5]. Orijinal 4 üst gün bacağı "
-            "0×, sırtı 30+ sete çıkarıyordu. ACSM hipertrofi için kas başına kabaca ≥10 set/hafta "
-            "der [1,30]; 30+ sırt seti geri dönüşte toparlanmayı bozar. Upper/lower her büyük grubu "
-            "2× vurur ve salon gününü 4’te tutar."
+            "<b>Neden 5 gün ve neden tek bacak günü?</b> Hedefin 5 salon günü; bacağı 1 güne "
+            "sığdırabiliyorsun. Üst vücut (sırt, göğüs, yan omuz) böylece haftada 2 kez uyarılır [4,5]. "
+            "Bacak 1× kalır — bu, ACSM/DSÖ’nün ≥2 gün tercihine göre ikinci plandadır [1,24]. Telafi: "
+            "o tek seansa ~12–16 ağır alt vücut seti yığmak. Hacim eşitlenince sıklığın kendisi sihir "
+            "değildir [5]; 1 dolu bacak günü, 0 bacak gününden kat kat iyidir ve 4 üst + 1 bacak, "
+            "orijinal 4× üst şablonundan daha dengelidir. 2. bir bacak günü ileride (ör. 6. ay) eklenebilir."
         )
     )
 
@@ -1043,19 +494,20 @@ def build_story():
                 simple_table(
                     ["Gün", "Odak", "Örnek yerleşme"],
                     [
-                        ["1  Üst A", "Göğüs, yan omuz, row", "Pazartesi"],
-                        ["2  Alt A", "Leg press, RDL, lunge, calf, plank", "Salı"],
-                        ["—", "İstirahat + yürüme", "Çarşamba"],
-                        ["3  Üst B", "Pulldown, press, row, biceps", "Perşembe"],
-                        ["4  Alt B", "Hip thrust, seated curl, split squat, karın", "Cuma"],
-                        ["—", "İstirahat, adım hedefi", "Cmt–Paz"],
+                        ["1  Sırt & biceps A", "Pulldown, destekli row, curl", "Pazartesi"],
+                        ["2  Göğüs & omuz A", "Incline, lateral, fly, overhead tri", "Salı"],
+                        ["3  Bacak", "Leg press, RDL, thrust, split squat, curl", "Çarşamba"],
+                        ["4  Sırt & biceps B", "V-bar pulldown, seated row, arka omuz", "Perşembe"],
+                        ["5  Göğüs & omuz B", "Press, shoulder press, lateral", "Cuma"],
+                        ["—", "İstirahat + yürüme (7–10 bin adım)", "Cmt–Paz"],
                     ],
-                    [40 * mm, 78 * mm, 60 * mm],
+                    [42 * mm, 78 * mm, 58 * mm],
                 ),
                 Spacer(1, 2 * mm),
                 P(
-                    "Beşinci gün şart değil. Tutarsız 6 gün, tutarlı 4 günden kötüdür [1,30]. İstersen "
-                    "hafta sonuna 30–40 dk tempolu yürüyüş ekle, ekstra FST-7 ekleme [31]."
+                    "<b>4 günlük hafta:</b> Gün 5’i (göğüs & omuz B) iptal et, yerine ‘Üst karma’yı koy "
+                    "(bölüm 9 salon kartı). <b>Bacak gününü asla kesme.</b> Tutarsız 6 gün, tutarlı "
+                    "4–5 günden kötüdür [1,30]."
                 ),
             ]
         )
@@ -1108,9 +560,9 @@ def build_story():
     story.append(P("<b>Seans hacmi</b>"))
     story.append(
         P(
-            "Her gün ≈ 16–20 çalışma seti. Bu, geri dönüş için yüksek ama orijinal FST-7’li sırt "
-            "gününden düşük ve toparlanabilir bir banttır [2,3]. Setler arası telefon molası yok; "
-            "süre 90 dakikayı geçerse izolasyonu kes, compound’u tut."
+            "Üst günler ≈ 14–18, bacak günü ≈ 18–22 çalışma seti. Bacak 1× olduğu için o seans "
+            "bilerek daha uzundur (75–90 dk). Süre 95 dakikayı geçerse leg extension ve karını kes, "
+            "leg press + RDL + thrust + split squat’ı tut [2,3]."
         )
     )
 
@@ -1118,14 +570,16 @@ def build_story():
     story += day_story(DAY2)
     story += day_story(DAY3)
     story += day_story(DAY4)
+    story += day_story(DAY5)
+    story += day_story(FOUR_DAY)
 
     # --- Salon karti ---
-    story.append(heading_bar("8. Salon kartı", "Telefona indirip salonda açmak için — yalnızca set/tekrar"))
+    story.append(heading_bar("9. Salon kartı", "Telefona indirip salonda açmak için — yalnızca set/tekrar"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         P(
-            "Aşağıdaki dört tablo, gerekçe metinleri olmadan tüm programdır. RIR ve dinlenme "
-            "bölüm 3’teki kurallara uyar. Isınma setleri yazılmaz."
+            "Aşağıdaki tablolar gerekçe metinleri olmadan tüm programdır. 5 günlük haftada 1–5; "
+            "4 günlük haftada 1, 2, 3 ve ‘Üst karma’. RIR ve dinlenme bölüm 3’e uyar."
         )
     )
 
@@ -1152,29 +606,31 @@ def build_story():
         )
         story.append(Spacer(1, 2.2 * mm))
 
-    compact("Gün 1 — Üst A (göğüs / yan omuz / row)", DAY1["ex"])
-    compact("Gün 2 — Alt A (quad / mentşe)", DAY2["ex"])
-    compact("Gün 3 — Üst B (sırt / biceps / press)", DAY3["ex"])
-    compact("Gün 4 — Alt B (kalça / hamstring / karın)", DAY4["ex"])
+    compact("Gün 1 — Sırt & biceps A", DAY1["ex"])
+    compact("Gün 2 — Göğüs & omuz A", DAY2["ex"])
+    compact("Gün 3 — Bacak (atlamayın)", DAY3["ex"])
+    compact("Gün 4 — Sırt & biceps B  (5 günlük hafta)", DAY4["ex"])
+    compact("Gün 5 — Göğüs & omuz B  (5 günlük hafta)", DAY5["ex"])
+    compact("4 günlük hafta — Üst karma (Gün 5 yerine)", FOUR_DAY["ex"])
 
     # --- Hacim ozeti ---
-    story.append(heading_bar("9. Haftalık çalışma seti özeti", "Isınma setleri hariç, doğrudan + büyük katkı"))
+    story.append(heading_bar("10. Haftalık çalışma seti özeti (5 günlük hafta)", "Isınma hariç"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         simple_table(
             ["Kas", "Doğrudan set/hafta", "Hedef bant [1–3]", "Not"],
             [
-                ["Lat / üst sırt", "11–14", "10–16", "Pulldown, row, pulldown-aksesuar"],
-                ["Göğüs", "10", "8–12", "Incline 3 + fly 2 + press 3"],
-                ["Yan deltoid", "7 + press", "8–12", "İlk 8 hafta 7 yeter; sonra +1 set"],
-                ["Arka deltoid", "5 + row", "6–10", "Face pull + reverse pec deck"],
-                ["Triceps", "3 + press", "6–10", "Overhead öncelikli [11]"],
-                ["Biceps", "5 + çekiş", "8–12", "Görsel öncelik değil"],
-                ["Quadriceps", "10–11", "10–14", "Leg press, lunge, extension, BSS"],
-                ["Glute", "9–12", "8–12", "Thrust + RDL + lunge + BSS + press"],
+                ["Lat / üst sırt", "14–16", "10–16", "2 çekiş günü; FST-7 yok"],
+                ["Göğüs", "10", "8–12", "Incline 3 + fly 2 + press 3 + crossover 2"],
+                ["Yan deltoid", "7 + press", "8–12", "Lateral 4+3"],
+                ["Arka deltoid", "6 + row", "6–10", "Face pull + reverse pec deck"],
+                ["Triceps", "5 + press", "6–10", "Overhead 3 + pushdown 2 [11]"],
+                ["Biceps", "7 + çekiş", "8–12", "Görsel öncelik değil"],
+                ["Quadriceps", "9–12", "10–16 (1× gün)", "Tek seansa yığılmış [5]"],
+                ["Glute", "9–12", "8–12", "Thrust + RDL + split squat + press"],
                 ["Hamstring", "6 + mentşe", "8–12", "Seated curl tercih [12]"],
-                ["Calf", "6", "6–10", "Standing + seated, gerilme [10]"],
-                ["Karın", "7", "4–10", "Yağ kaybı aracı değil [23]"],
+                ["Calf", "3–5", "6–10", "1× gün; zaman kalırsa seated +2"],
+                ["Karın", "4", "4–8", "Yağ kaybı aracı değil [23]"],
             ],
             [32 * mm, 38 * mm, 32 * mm, 76 * mm],
         )
@@ -1182,14 +638,14 @@ def build_story():
     story.append(Spacer(1, 2.2 * mm))
     story.append(
         P(
-            "Antrenmanlı erkeklerde 18–30 setlik üst bantlar da büyümeyi artırabilmiştir [3]; bu, "
-            "‘daha fazla her zaman daha iyi’ demek değildir. Geri dönüşte 10–16 doğrudan set, 30+ "
-            "sırt setinden daha sürdürülebilir bir dozdur [2,3]."
+            "Bacak 1× olduğu için calf/karın ikinci bir günde yok; hacim o seanstadır. 4 günlük "
+            "haftada sırt ve göğüs karma günle 2× kalır; yan omuz ~4+3 yerine ~4+3 (karma 3 set) "
+            "benzer bantta durur."
         )
     )
 
     # --- Orijinalden cikanlar ---
-    story.append(heading_bar("10. Orijinal programdan ne çıktı, neden?", "Aynı keyif, daha az risk, eşit veya daha iyi uyaran"))
+    story.append(heading_bar("11. Orijinal programdan ne çıktı, neden?", "Aynı keyif, daha az risk, eşit veya daha iyi uyaran"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         simple_table(
@@ -1231,9 +687,9 @@ def build_story():
                     "[2]",
                 ],
                 [
-                    "Sadece üst vücut haftası",
-                    "Büyük kas grupları (bacak dahil) ≥2 gün/hafta.",
-                    "[1,24]",
+                    "0 bacak günü (orijinal internet programı)",
+                    "Tek dolu bacak seansı eklendi. 2× sıklık kanıtı daha güçlü [4,24]; 1 günde ~12–16 set yığmak 0’dan iyidir [5].",
+                    "[1,4,5,24]",
                 ],
             ],
             [42 * mm, 96 * mm, 40 * mm],
@@ -1241,26 +697,30 @@ def build_story():
     )
 
     # --- Beslenme ---
-    story.append(heading_bar("11. Beslenme ve adım", "Fotoğrafı antrenmandan hızlı değiştiren kısım"))
+    story.append(heading_bar("12. Beslenme ve adım — 187 cm / 94 kg", "Fotoğrafı antrenmandan hızlı değiştiren kısım"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         P(
-            "<b>Protein.</b> ISSN, çoğu sporcu için 1,4–2,0 g/kg/gün yeterli der [22]. Morton "
-            "meta-analizi, direnç antrenmanıyla birlikte ≈1,6 g/kg civarında kas/kuvvet kazancının "
-            "plato bölgesine yaklaştığını gösterir [21]. Diyet döneminde yağsız kütleyi korumak "
-            "için ISSN 2,3–3,1 g/kg yağsız kitleye kadar çıkmayı tartışır [22]; pratikte "
-            "<b>1,6–2,2 g/kg vücut ağırlığı</b> bu profil için yeterli bir hedeftir. Öğün başına "
-            "20–40 g kaliteli protein [22]."
+            "<b>Kilon ve boyun.</b> 94 / 1,87² ≈ <b>BMI 26,9</b> (kilolu aralık). Bu bir hastalık "
+            "teşhisi değil; bel çevresi fotoğrafı da aynı hikâyeyi anlatır. Hedef ‘kuru 94’ değil, "
+            "yağsız kütleyi koruyarak bel çevresini yavaş indirmektir."
         )
     )
     story.append(
         P(
-            "<b>Enerji dengesi.</b> Bel çevresi yumuşak dokusu crunch ile seçilerek yakılmaz. "
-            "ACSM 2009: 150–250 dk/hafta orta şiddetli aktivite kilo alımını önler, tek başına "
-            "zayıf bir kayıp verir; klinik anlamlı kayıp genelde >250 dk/hafta veya diyetle "
-            "birlikte gelir [23]. Geri dönüşte agresif açık, hem toparlanmayı hem sırt antrenmanının "
-            "keyfini bozar. <b>İlk 8–12 hafta: idame veya günde ≈200–400 kcal açık</b>, protein yüksek, "
-            "antrenman ilerliyor. Haftalık tartı ±0,25–0,5 kg düşüş makul bir banttır."
+            "<b>Protein hedefi: 150–190 g/gün</b> (1,6–2,0 g/kg × 94 kg). ISSN 1,4–2,0 g/kg der [22]; "
+            "Morton meta-analizi ≈1,6 g/kg civarında plato gösterir [21]. Pratik: <b>160–180 g</b> "
+            "(öğün başına 30–45 g, 4–5 öğün) [22]. Diyet sıkılaşırsa 190–200 g’a çıkarmak yağsız "
+            "kütleyi korumaya yardım eder [22]."
+        )
+    )
+    story.append(
+        P(
+            "<b>Kalori (yaş bilinmediği için aralık).</b> Mifflin-St Jeor erkek: 10×94 + 6,25×187 − 5×yaş + 5. "
+            "Yaş 28–38 varsayılırsa BMR ≈ 1920–1980 kcal. 5 gün direnç + günlük yürüyüşle TDEE kaba "
+            "tahmin <b>≈ 2700–3100 kcal</b>. İlk 8–12 hafta: <b>2500–2800 kcal</b> (günde ~200–400 açık). "
+            "Haftalık tartı 0,25–0,5 kg düşsün; 1 kg/hafta hızlıdır ve sırt antrenmanını bozar [23]. "
+            "Kilo 2 hafta yerindeyse 150–200 kcal kes; performans ve uyku bozulursa 150 kcal ekle."
         )
     )
     story.append(
@@ -1280,7 +740,7 @@ def build_story():
     )
 
     # --- Takip ---
-    story.append(heading_bar("12. 8 haftalık takip", "Ayna pump’ı değil, sayı"))
+    story.append(heading_bar("13. 8 haftalık takip", "Ayna pump’ı değil, sayı"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         bullets(
@@ -1296,13 +756,12 @@ def build_story():
         )
     )
 
-    story.append(heading_bar("13. Mini ısınma ve seans içi düzen", "Uygulama detayı"))
+    story.append(heading_bar("14. Mini ısınma ve seans içi düzen", "Uygulama detayı"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         P(
-            "<b>Üst günler:</b> kol çemberi 10+10, 1 hafif pulldown veya band face pull, ardından rampa. "
-            "<b>Alt günler:</b> 5 dk bike, 1 set bodyweight squat, 1 hafif RDL. Ağrı varsa (keskin, tek taraflı, "
-            "yayılan) o hareketi yedeğe al; ‘acıyı sev’ uygulaması değildir."
+            "<b>Bacak günü:</b> 5–8 dk bike, 1 set bodyweight squat, 1 hafif RDL. Bu seans 75–90 dk; "
+            "telefon molası yok. <b>Üst günler:</b> kol çemberi 10+10, 1 hafif pulldown veya band face pull."
         )
     )
     story.append(
@@ -1315,7 +774,7 @@ def build_story():
     )
 
     # --- Kaynakca ---
-    story.append(heading_bar("14. Kaynakça", "Köşeli parantezler bu listeye karşılık gelir"))
+    story.append(heading_bar("15. Kaynakça", "Köşeli parantezler bu listeye karşılık gelir"))
     story.append(Spacer(1, 3 * mm))
     story.append(
         P(
@@ -1330,11 +789,10 @@ def build_story():
     story.append(Spacer(1, 4 * mm))
     story.append(
         ColoredBox(
-            "Özet: 4 gün, her büyük kas 2 kez, kas başına kabaca 10+ ağır set, 8–15 tekrar, "
-            "RIR 1–3, tam/uzun ROM, 2–3 dk compound dinlenme, cheat/FST-7/drop şovu yok, bacak var, "
-            "yan omuz ve lat öncelikli, protein 1,6–2,2 g/kg, bel için açık + adım. Bu cümlelerin her "
-            "biri yukarıdaki A veya B kanıta bağlanır. Hareket markası (şu makine vs bu kablo) ise "
-            "çoğunlukla C/D’dir ve ACSM’nin de söylediği gibi ikincildir [1].",
+            "Özet: 5 gün (çekiş–itiş–bacak–çekiş–itiş), üst vücut 2×, bacak 1 dolu seans, "
+            "kas başına kabaca 10+ ağır set, 8–15 tekrar, RIR 1–3, tam/uzun ROM, cheat/FST-7/drop yok. "
+            "94 kg için protein 160–180 g, kalori 2500–2800 bandı, günde 7–10 bin adım. 4 günlük haftada "
+            "bacak kalır, Gün 5 ‘üst karma’ya döner. Hareket markası ikincildir [1].",
             178 * mm,
             HexColor("#EAF2EA"),
             GREEN,
@@ -1344,8 +802,8 @@ def build_story():
     story.append(Spacer(1, 4 * mm))
     story.append(
         P(
-            "Hazırlanış: Eylül 2026. Kişisel fotoğraf + kullanıcının uyguladığı sırt–biceps şablonu "
-            "üzerinden bireyselleştirildi. Genel popülasyon kılavuzu olarak kopyalanmamalı.",
+            "Hazırlanış: Eylül 2026. Fotoğraf + 187 cm / 94 kg + 5 gün (1 bacak) tercihi. "
+            "Genel popülasyon kılavuzu olarak kopyalanmamalı.",
             "center",
         )
     )
@@ -1365,7 +823,7 @@ def main():
         bottomMargin=14 * mm,
         title="Kanıta Dayalı Hipertrofi Programı",
         author="Bireyselleştirilmiş antrenman rehberi",
-        subject="4 günlük üst/alt hipertrofi programı ve kaynakçalı gerekçeler",
+        subject="5 günlük çekiş/itiş/bacak hipertrofi programı (1 bacak günü, 4 gün yedek)",
     )
     doc.build(build_story(), onFirstPage=cover_page, onLaterPages=header_footer)
     print("Wrote", out)
