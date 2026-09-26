@@ -496,7 +496,7 @@ def build_story():
                     [
                         ["1  Sırt & biceps A", "Pulldown, destekli row, curl", "Pazartesi"],
                         ["2  Göğüs & omuz A", "Incline, lateral, fly, overhead tri", "Salı"],
-                        ["3  Bacak", "Leg press, RDL, thrust, split squat, curl", "Çarşamba"],
+                        ["3  Bacak", "Squat, press, curl, extension, hyper", "Çarşamba"],
                         ["4  Sırt & biceps B", "V-bar pulldown, seated row, arka omuz", "Perşembe"],
                         ["5  Göğüs & omuz B", "Press, shoulder press, lateral", "Cuma"],
                         ["—", "İstirahat + yürüme (7–10 bin adım)", "Cmt–Paz"],
@@ -538,7 +538,7 @@ def build_story():
     story.append(
         P(
             "Tam veya uzun (gerilmiş) ROM, kısa kas boyundaki kısmi ROM’dan üstün veya eşittir [9]. "
-            "Pulldown tepesinde lat’i esnet; calf’ta topuğu indir; fly’da göğsü aç."
+            "Pulldown tepesinde lat’i esnet; squat’ta bel yuvarlanmasın; fly’da göğsü aç."
         )
     )
     story.append(P("<b>Isınma</b>"))
@@ -560,9 +560,8 @@ def build_story():
     story.append(P("<b>Seans hacmi</b>"))
     story.append(
         P(
-            "Üst günler ≈ 14–18, bacak günü ≈ 18–22 çalışma seti. Bacak 1× olduğu için o seans "
-            "bilerek daha uzundur (75–90 dk). Süre 95 dakikayı geçerse leg extension ve karını kes, "
-            "leg press + RDL + thrust + split squat’ı tut [2,3]."
+            "Üst günler ≈ 14–18, bacak günü 5 hareket / 15 set (~55–70 dk). Enerji biterse "
+            "extension’ı 2 sete indir; squat, press, curl ve hyper kalsın [2]."
         )
     )
 
@@ -626,11 +625,11 @@ def build_story():
                 ["Arka deltoid", "6 + row", "6–10", "Face pull + reverse pec deck"],
                 ["Triceps", "5 + press", "6–10", "Overhead 3 + pushdown 2 [11]"],
                 ["Biceps", "7 + çekiş", "8–12", "Görsel öncelik değil"],
-                ["Quadriceps", "9–12", "10–16 (1× gün)", "Tek seansa yığılmış [5]"],
-                ["Glute", "9–12", "8–12", "Thrust + RDL + split squat + press"],
-                ["Hamstring", "6 + mentşe", "8–12", "Seated curl tercih [12]"],
-                ["Calf", "3–5", "6–10", "1× gün; zaman kalırsa seated +2"],
-                ["Karın", "4", "4–8", "Yağ kaybı aracı değil [23]"],
+                ["Quadriceps", "9", "8–12 (1× gün)", "Squat 3 + press 3 + extension 3"],
+                ["Glute", "squat+press+hyper", "dolaylı", "Hip thrust yok; hyper mentşe"],
+                ["Hamstring", "3 + hyper", "6–10", "Curl 3; seated varsa oturarak [12]"],
+                ["Calf", "0 (zorunlu değil)", "—", "Enerji kalırsa press’te 2 calf seti"],
+                ["Karın", "üst günlerde yok", "—", "Bacak gününe eklenmedi"],
             ],
             [32 * mm, 38 * mm, 32 * mm, 76 * mm],
         )
@@ -638,7 +637,7 @@ def build_story():
     story.append(Spacer(1, 2.2 * mm))
     story.append(
         P(
-            "Bacak 1× olduğu için calf/karın ikinci bir günde yok; hacim o seanstadır. 4 günlük "
+            "Bacak 5 harekete indirildi (kullanıcı tercihi). Calf ve karın bu günde yok. 4 günlük "
             "haftada sırt ve göğüs karma günle 2× kalır; yan omuz ~4+3 yerine ~4+3 (karma 3 set) "
             "benzer bantta durur."
         )
@@ -760,15 +759,15 @@ def build_story():
     story.append(Spacer(1, 3 * mm))
     story.append(
         P(
-            "<b>Bacak günü:</b> 5–8 dk bike, 1 set bodyweight squat, 1 hafif RDL. Bu seans 75–90 dk; "
-            "telefon molası yok. <b>Üst günler:</b> kol çemberi 10+10, 1 hafif pulldown veya band face pull."
+            "<b>Bacak günü:</b> 5 dk bike + 1 boş squat. 55–70 dk. <b>Üst günler:</b> kol çemberi "
+            "10+10, 1 hafif pulldown veya band face pull."
         )
     )
     story.append(
         P(
             "<b>Sıra.</b> Nunes meta-analizi: hipertrofi için çok eklem→izolasyon ile tersi benzerdir; "
             "<b>kuvvet, seansın başındaki harekette daha çok artar</b> [19]. Bu yüzden pulldown, press, "
-            "leg press ve hip thrust günün başındadır. Yan omuz öncelikli olduğu için lateral, tamamen "
+            "leg press ve squat günün başındadır. Yan omuz öncelikli olduğu için lateral, tamamen "
             "sona bırakılmaz."
         )
     )

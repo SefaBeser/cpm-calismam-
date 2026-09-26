@@ -246,7 +246,7 @@ def build_training():
             [
                 ["Pazartesi", "Sırt & biceps A", "65–75 dk", "Keyif aldığın çekiş günü"],
                 ["Salı", "Göğüs & omuz A", "65–75 dk", "Incline + lateral"],
-                ["Çarşamba", "Bacak", "75–90 dk", "ATLAMAYIN"],
+                ["Çarşamba", "Bacak (5 hareket)", "55–70 dk", "ATLAMAYIN"],
                 ["Perşembe", "Sırt & biceps B", "60–70 dk", "İkinci çekiş"],
                 ["Cuma", "Göğüs & omuz B", "60–70 dk", "4 günde bu gün düşer"],
                 ["Cmt–Paz", "İstirahat", "—", "7–10 bin adım"],
@@ -270,9 +270,9 @@ def build_training():
             [
                 "<b>RIR:</b> 2 = düzgün formla 2 tekrar daha yapabilirdim. Çok eklemli 1–3, izolasyon son set 0–1.",
                 "<b>Dinlenme:</b> compound 2,5–3 dk, izolasyon 75–90 sn.",
-                "<b>ROM:</b> pulldown tepede geril, calf’ta topuğu indir, fly’da göğsü aç. Cheat yok.",
+                "<b>ROM:</b> pulldown tepede geril, squat/press’te bel yuvarlanmasın, fly’da göğsü aç. Cheat yok.",
                 "<b>İlerleme:</b> bandın üstünü (ör. 3×12) bitirince kilo ekle, tekrar 8’e dön.",
-                "<b>Bacak 90 dk’yı aşarsa:</b> extension ve karını kes; press + RDL + thrust + split squat kalsın.",
+                "<b>Bacak enerjin biterse:</b> extension’ı 2 sete in; squat, press, curl, hyper kalsın.",
             ]
         )
     )

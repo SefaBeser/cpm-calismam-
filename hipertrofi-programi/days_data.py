@@ -193,134 +193,101 @@ DAY2 = {
 }
 
 DAY3 = {
-    "title": "6. GÜN 3 — BACAK (haftanın tek alt vücut günü)",
-    "sub": "Quad + kalça + hamstring aynı seans  ·  75–90 dk  ·  atlama",
+    "title": "6. GÜN 3 — BACAK (5 hareket · ~55–70 dk)",
+    "sub": "Squat, leg press, curl, extension, hyperextension  ·  atlama",
     "intro": (
-        "5 günün 1’i bacak. ACSM ve DSÖ büyük kasları ≥2 gün/hafta ister [1,24]; sıklık "
-        "meta-analizleri de 2×’i 1×’e tercih eder [4]. Tercihin 1 tam gündür: hacim eşitlenince "
-        "1× hâlâ büyütür, yeter ki o güne yeterince ağır set yığılabilsin [5]. Bu yüzden iki kısa "
-        "bacak günü yerine tek, dolu bir seans var. Quad için squat/press paterni, kalça için "
-        "hip thrust, hamstring için seated curl (uzun kas boyu) aynı güne alındı [12,13]. "
-        "4 günlük haftada <b>bu günü asla kesme</b>."
+        "Tek bacak günü, yalnızca yapabildiğin makinelere indirildi: squat + leg press (quad/kalça), "
+        "leg curl (hamstring), extension (quad izolasyon), hyperextension (kalça–ham–erektör). "
+        "Hip thrust, lunge, RDL, calf ve karın yok; 8 hareketlik seans enerjiyi bitirirdi. "
+        "15 çalışma seti, 1× sıklık için yeterli bir dozdur [2,5]. Seated curl varsa prone’a tercih "
+        "et [12]. 4 günlük haftada <b>bu günü asla kesme</b>."
     ),
     "ex": [
         {
-            "name": "Leg press (veya goblet / makine squat)",
-            "sets": "4",
+            "name": "Squat (bar, Smith veya goblet)",
+            "sets": "3",
             "reps": "8–12",
             "rest": "3 dk",
-            "rir": "1–3",
+            "rir": "2–3",
             "target": "Quadriceps, glute, addüktör",
             "why": (
-                "Tek bacak gününde quad hacminin omurgası. ACSM ekipman türünün sonucu tutarlı "
-                "değiştirmediğini belirtir [1]. Plotkin: squat paterni kalçada hip thrust kadar, "
-                "uyluk önü ve addüktörde daha fazla kesit artışı [13]. 4 set, 1× sıklığı telafi eder [2]."
+                "Günün en yorucu, en becerili hareketi olduğu için başta [19]. Plotkin: squat paterni "
+                "kalçada hip thrust kadar, uyluk önünde daha fazla kesit artışı verir [13]. "
+                "İlk haftalar RIR 2–3; ego squat yok. Smith/goblet serbest bara denk sayılır [1]."
             ),
-            "cues": "Bel yastıktan kalkmasın. Derin, kontrollü ROM [9]. Kilit çarpma yok.",
-            "swap": "Hack squat, goblet squat, smith squat. Barbell squat ancak teknik hazırsa.",
+            "cues": (
+                "Topuklar yerde, dizler parmak yönünde. Derin ama bel yuvarlanmadan. "
+                "Göğüs açık. Çıkışta kalçayı kilitleyip bel boşluğunu şişirme."
+            ),
+            "swap": "Smith squat, goblet squat, hack squat. Bel rahatsızsa bu 3 seti leg press’e ekle.",
             "grade": "A (hacim) + B (Plotkin 2023).",
         },
         {
-            "name": "Romanian deadlift (dumbbell veya bar)",
+            "name": "Leg press",
             "sets": "3",
             "reps": "8–12",
             "rest": "2,5–3 dk",
-            "rir": "2–3",
-            "target": "Hamstring, glute, erektör",
-            "why": (
-                "Mentşe, hamstringi uzun kas boyunda yükler [9,12]. ‘Pelvik tilt tedavisi’ iddiası "
-                "yok; amaç hipertrofi ve bel-güvenli kalça bükülmesidir. İlk haftalar RIR 3."
-            ),
-            "cues": "Diz az kırık, bar bacağı sıyırır, bel nötr. Yuvarlama yok.",
-            "swap": "45° hiperextension (kalçadan, belden değil), cable pull-through.",
-            "grade": "A (uzun kas boyu) + C/D (mentşe).",
-        },
-        {
-            "name": "Hip thrust (bar, makine veya glute bridge)",
-            "sets": "3",
-            "reps": "8–12",
-            "rest": "2,5 dk",
-            "rir": "1–2",
-            "target": "Gluteus maximus",
-            "why": (
-                "MRI: hip thrust ve squat gluteusta benzer büyüme; squat quad’da önde [13]. "
-                "Fotoğrafta kalça silik — ikisi de aynı günde."
-            ),
-            "cues": "Kürek bench’te, üstte kalça tam açılsın, bel aşırı çukur değil. İtme topukla.",
-            "swap": "Makine hip thrust, tek bacak glute bridge.",
-            "grade": "B (Plotkin 2023, MRI).",
-        },
-        {
-            "name": "Bulgarian split squat veya reverse lunge",
-            "sets": "3",
-            "reps": "8–10 / bacak",
-            "rest": "2 dk",
             "rir": "1–3",
-            "target": "Quad, glute, tek bacak kontrolü",
+            "target": "Quadriceps, glute",
             "why": (
-                "Unilateral squat, çift bacakla karşılaştırılabilir kuvvet adaptasyonu verebilir [26]. "
-                "Tek günde simetri ve ekstra quad/glute seti. İlk 2 hafta goblet ile öğren."
+                "Squat’tan sonra hacmi güvenli tamamlar. Bel yastığa yaslı olduğu için squat kadar "
+                "omurga becerisi istemez [1]. 3+3 = 6 compound quad seti; 1× gün için omurga budur [2]."
             ),
-            "cues": "Arka ayak düşük destekte, gövde hafif öne. Diz rahatsa reverse lunge.",
-            "swap": "Walking lunge, step-up, tutunarak split squat.",
-            "grade": "B (Speirs 2016) + A (hacim).",
+            "cues": "Bel yastıktan kalkmasın. Kontrollü in, kilidi çarpmadan uzat. Ayaklar omuz genişliği.",
+            "swap": "Yoksa squat’a 2 set daha ekle. Hack squat.",
+            "grade": "A (hacim) + B (squat paterni [13]).",
         },
         {
-            "name": "Oturarak leg curl (seated)",
+            "name": "Leg curl (oturarak varsa oturarak)",
             "sets": "3",
             "reps": "10–12",
             "rest": "90–120 sn",
             "rir": "0–2",
-            "target": "Hamstring (uzun kas boyu)",
+            "target": "Hamstring",
             "why": (
-                "12 haftalık MRI: seated curl prone’a göre tüm hamstring +14% vs +9% [12]. "
-                "RDL mentşe, curl izolasyon; ikisi tamamlayıcıdır."
+                "Hamstringi doğrudan büker. Seated (kalça bükük) curl, 12 haftalık MRI’da prone’dan "
+                "daha fazla hamstring hacmi vermiştir (+14% vs +9%) [12]. Makine yüzüstüyse yine yap; "
+                "3 set yeter. RDL olmadığı için bu 3 set kesilmez."
             ),
-            "cues": "Kalça oturağa yapışık. Tam uzat, kontrollü bük.",
-            "swap": "Lying curl yalnızca seated yoksa.",
+            "cues": "Kalça pad’e yapışık. Tam uzat, kontrollü bük. Kalçayı kaldırma.",
+            "swap": "Lying / standing curl. Hepsi kabul.",
             "grade": "B (Maeo 2021, MRI).",
         },
         {
             "name": "Leg extension",
-            "sets": "2",
+            "sets": "3",
             "reps": "12–15",
             "rest": "75–90 sn",
             "rir": "0–2",
             "target": "Quadriceps (rektus femoris)",
-            "why": "Compound rektus femorisi her zaman yeterince uzatmaz. 2 set, ~12–14 quad set/haftayı tamamlar [1,2].",
-            "cues": "Sırt yaslı. Üstte 0,5 sn. Diz ağrısında ROM kısalt.",
-            "swap": "Zaman yoksa kes; leg press’i 4 sette tut.",
+            "why": (
+                "Squat ve press rektus femorisi her zaman yeterince uzatmaz. 3 izolasyon seti haftalık "
+                "quad’ı ~9–12 sete tamamlar [1,2]. Son sette RIR 0–1 olabilir."
+            ),
+            "cues": "Sırt yaslı. Üstte 0,5 sn. Diz ağrırsa ROM’u kısalt, kilo düş.",
+            "swap": "Enerji biterse 2 sete in; squat ve press’i kesme.",
             "grade": "A (hacim tamamlama).",
         },
         {
-            "name": "Standing calf raise (tam gerilme)",
+            "name": "Hyperextension (plaka tutarak)",
             "sets": "3",
             "reps": "10–15",
-            "rest": "75–90 sn",
-            "rir": "0–2",
-            "target": "Gastrocnemius",
+            "rest": "90 sn",
+            "rir": "1–3",
+            "target": "Glute, hamstring, erektör",
             "why": (
-                "Kassiano: uzun kas boyundaki (gerilmiş) çalışma medial gastrocnemius’ta tam ROM ve "
-                "kısa kısımdan daha fazla büyüme [10]. Topuğu indir."
+                "RDL ve hip thrust’ın senin makine listendeki karşılığı. Kalçadan bükülen (belden "
+                "kırılmayan) hyperextension arka zinciri yükler. Orijinal programdaki ‘kilo tutarak "
+                "hyper’ notu burada kontrollü ve RIR’li haliyle durur. Bel yuvarlayarak ‘kambur "
+                "hyper’ yok."
             ),
-            "cues": "Basamak ucu, diz neredeyse kilit, altta 1 sn, zıplama yok.",
-            "swap": "Leg press calf. Seated calf zaman kalırsa +2 set (soleus).",
-            "grade": "B (Kassiano 2023).",
-        },
-        {
-            "name": "Kablo crunch + plank",
-            "sets": "2+2",
-            "reps": "12–15 ve 30–45 sn",
-            "rest": "60 sn",
-            "rir": "1–3 / —",
-            "target": "Rectus + anti-ekstansiyon",
-            "why": (
-                "Karın bel yağını yakmaz [23]. Sit-up lomber kompresyonu yüksektir [27]. 2 crunch "
-                "(orijinal not: ağır ego yok) + 2 plank yeter."
+            "cues": (
+                "Pad kalça kemiğinin hemen altında. Göğüs açık, bel nötr. Aşağı inerken kalça "
+                "geriye, yukarı çıkarken kalçayı sık. Üstte bel boşluğunu şişirme. 5–10 kg plaka "
+                "göğüste yeter; ilk hafta vücut ağırlığı da olur."
             ),
-            "cues": "Crunch’ta kaburga pelvise; plank’te kalça ne çökme ne çadır.",
-            "swap": "Leg raise, dead bug. Sit-up yok.",
-            "grade": "C [27] + A (spot reduction yok).",
+            "swap": "45° back extension. Reverse hyper yoksa bu kalır.",
+            "grade": "A (arka zincir hacmi) + C/D (mentşe). RDL/hip thrust kadar doğrudan RCT’si yok; elindeki mentşe bu.",
         },
     ],
 }
