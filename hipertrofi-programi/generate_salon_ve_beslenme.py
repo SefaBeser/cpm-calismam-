@@ -279,6 +279,15 @@ def build_training():
         )
     )
     story.append(P("Gerekçeler ve kaynakça uzun PDF’tedir. Bu dosya yalnızca uygulama kartıdır.", "small"))
+    story.append(Spacer(1, 2 * mm))
+    story.append(
+        box(
+            "Akşam duruş (~12 dk, ev)",
+            "Bütün gün oturuyorsun. Salon duruşu ‘düzeltmez’; akşam kısa rutin + adım işe yarar. Sit-up yok. Ağrı/uyuşma varsa bu kartı bırak, hekime sor. Kart PDF’in sonundadır.",
+            HexColor("#EAF2EA"),
+            GREEN,
+        )
+    )
 
     cards = [
         (DAY1, "GÜN 1 — SIRT & BICEPS A  ·  Pazartesi"),
@@ -291,7 +300,49 @@ def build_training():
     for day, title in cards:
         story.append(PageBreak())
         story.extend(day_card(day, title))
+    story.append(PageBreak())
+    story.extend(evening_posture_card())
     return story
+
+
+def evening_posture_card():
+    rows = [
+        ["1", "Kapı aralığı göğüs esnetme", "2×30–40 sn", "Göğüs/omuz içi (oturunca kısalır)"],
+        ["2", "Yarım diz kalça flexör esnetme", "2×40 sn / bacak", "Kalça önü (APT / sandalye)"],
+        ["3", "Glute bridge (yere sırtüstü)", "2×10–12", "Kalça; bel boşluğunu şişirme"],
+        ["4", "Duvar kaydırma (wall slide)", "2×8–10", "Kürek + göğüs kafesi açılma"],
+        ["5", "Çene içeri (chin tuck)", "2×8, 3 sn tut", "İleri kafa duruşu"],
+        ["6", "Dead bug", "2×6 / taraf", "Karın anti-ekstansiyon; sit-up yok"],
+    ]
+    return [
+        heading_bar("AKŞAM DURUŞ  ·  ev, iş günleri", "~12 dk  ·  07:00 antrenmanı yormaz  ·  ağırlık yok"),
+        Spacer(1, 3 * mm),
+        P(
+            "Duruş ‘bir hareketle düzelmez’. Masa başı günü göğsü ve kalça önünü kısaltır, küreği ve "
+            "kalçayı uyuşturur. Bu kart germe + düşük yük. Salon zaten row, face pull, reverse pec, "
+            "squat ve hyperextension veriyor; akşam ekstra bar yok. Yemekten 20–30 dk sonra veya "
+            "duş öncesi. Pazartesi barbell row belin doluysa 3 ve 6’yı atla, 1–2–4–5 kalsın."
+        ),
+        simple_table(
+            ["#", "Hareket", "Doz", "Neden"],
+            rows,
+            [10 * mm, 62 * mm, 38 * mm, 68 * mm],
+        ),
+        Spacer(1, 2 * mm),
+        P("<b>Nasıl</b>", "h3"),
+        P("<b>Kapı esnetme:</b> Önkol kapı kenarında, gövde hafif öne, bel çukuru artmasın.", "cue"),
+        P("<b>Kalça flexör:</b> Arka diz yerde, ön diz 90°. Kalçayı öne sık, bel boşluğunu şişirme.", "cue"),
+        P("<b>Bridge:</b> Topuklar yerde, kalçayı kaldır, üstte 1 sn. Boyun rahat. Ağırlık yok.", "cue"),
+        P("<b>Wall slide:</b> Sırt ve kalça duvara. Kollar W→Y, bel duvardan ayrılmasın.", "cue"),
+        P("<b>Chin tuck:</b> Çifte çene, kafayı duvara yaklaştırır gibi. Omuzlar aşağı.", "cue"),
+        P("<b>Dead bug:</b> Bel yere yapışık. Zıt kol–bacak yavaş. Bel kalkarsa ROM küçült.", "cue"),
+        Spacer(1, 2 * mm),
+        P(
+            "Günde 8–10 bin adım bu karttan daha çok ‘oturmayı’ bozar. Sit-up, rus twist, ağır "
+            "superman yok. Bu tıbbi fizyoterapi değildir.",
+            "small",
+        ),
+    ]
 
 
 def build_nutrition():
@@ -551,6 +602,7 @@ def main():
                 "Pazartesi–Cuma seans kartları (set, tekrar, dinlenme, RIR)",
                 "Kısa form ipuçları ve yedek hareket",
                 "4 günlük hafta için üst karma kartı",
+                "Akşam duruş kartı (~12 dk, ev)",
                 "Bacak günü atlanmaz",
             ],
         ),
