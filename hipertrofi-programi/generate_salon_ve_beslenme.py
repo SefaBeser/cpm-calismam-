@@ -310,7 +310,7 @@ def build_nutrition():
     story.append(
         box(
             "Asıl sorun öğün sayısı değil",
-            "İki öğünle de 160–180 g protein ve 2500–2800 kcal olur; porsiyonlar şu an büyük ihtimalle bunun altında. Sabah aç antrenman serbest. Tek yeni alışkanlık: spor çıkışı 2 dakikalık whey (çantada shaker). Bunu da atarsan öğleyi büyüt.",
+            "İki öğünle de 160–180 g protein ve 2500–2800 kcal olur; porsiyonlar şu an büyük ihtimalle bunun altında. Sabah aç antrenman serbest. Spor çıkışı whey (protein). Rice cream istersen işte öğleden sonra tek başına — kolay karbonhidrat, kas sihri değil.",
             HexColor("#EAF2EA"),
             GREEN,
         )
@@ -324,7 +324,7 @@ def build_nutrition():
             [
                 ["Kalori", "2500–2800 kcal", "Hafif açık; bel çevresi yavaş insin, antrenman düşmesin"],
                 ["Protein", "160–180 g (hedef 170 g)", "1,7–1,9 g/kg; ISSN 1,4–2,0 g/kg"],
-                ["Karbonhidrat", "220–280 g", "Çoğu akşam pilavında; 5 öğün rice cream yok"],
+                ["Karbonhidrat", "220–280 g", "Akşam pilav + isteğe öğleden sonra rice cream"],
                 ["Yağ", "70–90 g", "Peynir, zeytin, zeytinyağı; öğleyi şişirme, akşam ölç"],
                 ["Su", "3–3,5 L", "Sabah salonda 0,5 L; öğle ve akşam rest"],
                 ["Adım", "7–10 bin / gün", "İş–salon dışında en temiz ek harcama"],
@@ -365,6 +365,11 @@ def build_nutrition():
                     "78 / 45 / 42",
                 ],
                 [
+                    "15:00–16:30 işte (isteğe)",
+                    "Rice cream 50–60 g kuru + su veya süt, shaker’da. Tek başına. Pişirme yok. Protein değil; kaçırılan karbonhidrat/kalori.",
+                    "2 / 45 / 1",
+                ],
+                [
                     "19:00–21:00 akşam",
                     "220–250 g tavuk (pişmiş), 500 g pilav (pişmiş, tart), bol salata, 1 tatlı kaşığı zeytinyağı. İsteğe 1 meyve.",
                     "70 / 140 / 18",
@@ -376,9 +381,8 @@ def build_nutrition():
     story.append(Spacer(1, 2 * mm))
     story.append(
         P(
-            "Kabaca whey + öğle + bu akşam ≈ 175 g protein, ~190 g karbonhidrat, ~62 g yağ, ~2400 kcal. "
-            "Kalan 100–300 kcal: öğleye 1 muz veya pilavı 550 g’a çıkar. Rice cream şart değil; "
-            "kullanacaksan akşam yoğurda 40–50 g karıştır, sabaha koyma. Zeytini 15–20 adede çıkarma.",
+            "Kabaca whey + öğle + rice cream 55 g + akşam ≈ 177 g protein, ~235 g karbonhidrat, ~63 g yağ, ~2600 kcal. "
+            "Rice cream yoksa pilavı 550 g’a çıkar veya öğleye 1 muz koy. Zeytini 15–20 adede çıkarma.",
             "small",
         )
     )
@@ -388,7 +392,7 @@ def build_nutrition():
                 "<b>Whey atarsan:</b> öğleye +2 yumurta ve +50 g hindi ekle (aynı ~25–30 g protein).",
                 "<b>Ekmek yemiyorsan:</b> öğleye 200 g yoğurt kalır; karbonhidratı akşam pilavında topla (500 g pişmiş).",
                 "<b>İş yerinde ısıtma yok:</b> öğle zaten soğuk kahvaltılık; akşam evde pilav–tavuk yeter.",
-                "<b>Antrenmansız gün (07:45):</b> whey yok. Öğle + akşam aynı porsiyon. Kreatin yine öğle ile 5 g.",
+                "<b>Antrenmansız gün (07:45):</b> whey yok. Rice cream yarıya (30 g) veya yok. Öğle + akşam aynı. Kreatin öğle ile 5 g.",
             ]
         )
     )
@@ -406,7 +410,7 @@ def build_nutrition():
                 ["Ekmek", "yok veya 1 dilim", "2 dilim (veya yoksa pilavı büyüt)"],
                 ["Yoğurt", "yok", "200 g öğle — protein + tokluk"],
                 ["Tavuk (akşam, pişmiş)", "1 küçük parça", "220–250 g"],
-                ["Pilav (akşam, pişmiş)", "4–5 kaşık", "500 g (dolu tabak, tart)"],
+                ["Pilav (akşam, pişmiş)", "4–5 kaşık", "500 g (rice cream varsa 450 g yeter)"],
             ],
             [42 * mm, 52 * mm, 84 * mm],
         )
@@ -417,9 +421,8 @@ def build_nutrition():
     story.append(
         P(
             "Haftada 2–3 kez, <b>akşam yemeğinden sonra</b>, tek porsiyon (1 paket cips değil; "
-            "1 çikolata, 1 dilim börek, 1 kâse dondurma). O gün pilavı ~100 g pişmiş azalt. "
-            "Öğle yerine abur cubur yok — öğle senin protein omurgan. Her gün atıştırmak 2500–2800 "
-            "bandını yağdan doldurur, bel çevresi inmez."
+            "1 çikolata, 1 dilim börek, 1 kâse dondurma). O gün pilavı ~100 g pişmiş azalt <b>ve "
+            "rice cream’i atla</b>. Öğle yerine abur cubur yok — öğle senin protein omurgan."
         )
     )
 
@@ -443,9 +446,9 @@ def build_nutrition():
                 ],
                 [
                     "Rice cream",
-                    "Şart değil",
-                    "Kullanırsan akşam",
-                    "07:00 seansa uymuyor. Pilavın yerine geçmez.",
+                    "50–60 g kuru (antrenman günü)",
+                    "İşte ~15:00–16:30, tek başına shaker",
+                    "Kolay KH/kcal. Protein yok. Abur cubur olan gün atla veya 30 g. Antrenmansız 30 g veya yok.",
                 ],
                 [
                     "Kafein / kahve",
@@ -487,14 +490,14 @@ def build_nutrition():
                 "Yumurta 20–25 adet; hindi füme ~700 g; beyaz peynir; yoğurt 2 kg",
                 "Tavuk 1,5–1,8 kg (pişmiş hedef 220–250 g × 7); pirinç (pilav akşamları büyük)",
                 "Ekmek, salatalık, domates, salata yeşilliği, zeytin (az), zeytinyağı",
-                "Whey (bitene), kreatin monohidrat 5 g/gün, isteğe D vitamini / balık yağı",
+                "Whey (bitene), kreatin 5 g/gün, rice cream kutusu (antrenman günü 50–60 g kuru)",
             ]
         )
     )
     story.append(
         box(
             "Hafta içi zaman çizelgesi (senin günün)",
-            "06:30 kalk + kahve · 07:00 salon · çıkışta whey · iş · 13:00 öğle kahvaltılık + kreatin 5 g · akşama kadar bir şey yok · 20:00 pilav–tavuk–salata. Antrenmansız: 07:45 kalk, öğle ve akşam aynı, whey yok, kreatin öğlede.",
+            "06:30 kalk + kahve · 07:00 salon · çıkışta whey · iş · 13:00 öğle kahvaltılık + kreatin 5 g · 15:30 rice cream 50–60 g (shaker, işte) · 20:00 pilav–tavuk–salata. Antrenmansız: 07:45 kalk, öğle ve akşam aynı, whey yok, rice cream yok veya 30 g, kreatin öğlede.",
             PALE,
             NAVY,
         )
@@ -563,7 +566,7 @@ def main():
             [
                 "Aç 07:00 antrenman · öğle kahvaltılık · akşam pilav-tavuk",
                 "2500–2800 kcal · 160–180 g protein · 2 öğün",
-                "Whey salon çıkışı · kreatin 5 g öğle ile",
+                "Whey salon çıkışı · rice cream işte 50–60 g · kreatin öğle 5 g",
                 "Abur cubur: haftada 2–3, akşamdan sonra",
             ],
             kicker="BASİT BESLENME",
