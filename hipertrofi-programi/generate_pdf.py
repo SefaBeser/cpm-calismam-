@@ -709,9 +709,10 @@ def build_story():
     story.append(
         P(
             "<b>Protein hedefi: 150–190 g/gün</b> (1,6–2,0 g/kg × 94 kg). ISSN 1,4–2,0 g/kg der [22]; "
-            "Morton meta-analizi ≈1,6 g/kg civarında plato gösterir [21]. Pratik: <b>160–180 g</b> "
-            "(öğün başına 30–45 g, 4–5 öğün) [22]. Diyet sıkılaşırsa 190–200 g’a çıkarmak yağsız "
-            "kütleyi korumaya yardım eder [22]."
+            "Morton meta-analizi ≈1,6 g/kg civarında plato gösterir [21]. Pratik: <b>160–180 g</b>. "
+            "Öğün sayısı sihir değildir; 2 büyük öğün + spor çıkışı 1 shake yeter. Sabah aç "
+            "antrenman, günlük protein ve kalori tutulursa hipertrofiyi tutarlı bozmaz. "
+            "Diyet sıkılaşırsa 190–200 g’a çıkarmak yağsız kütleyi korumaya yardım eder [22]."
         )
     )
     story.append(
