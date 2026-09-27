@@ -244,7 +244,7 @@ def build_training():
         simple_table(
             ["Gün", "Seans", "Süre", "Not"],
             [
-                ["Pazartesi", "Sırt & biceps A", "65–75 dk", "Keyif aldığın çekiş günü"],
+                ["Pazartesi", "Sırt & biceps A", "70–80 dk", "Pulldown + 3 row + curl"],
                 ["Salı", "Göğüs & omuz A", "65–75 dk", "Incline + lateral"],
                 ["Çarşamba", "Bacak (5 hareket)", "55–70 dk", "ATLAMAYIN"],
                 ["Perşembe", "Sırt & biceps B", "60–70 dk", "İkinci çekiş"],
@@ -273,6 +273,7 @@ def build_training():
                 "<b>ROM:</b> pulldown tepede geril, squat/press’te bel yuvarlanmasın, fly’da göğsü aç. Cheat yok.",
                 "<b>İlerleme:</b> bandın üstünü (ör. 3×12) bitirince kilo ekle, tekrar 8’e dön.",
                 "<b>Bacak enerjin biterse:</b> extension’ı 2 sete in; squat, press, curl, hyper kalsın.",
+                "<b>Gün 1 bel yorulursa:</b> barbell row’u 2 sete in; pulldown ve göğüs destekli kalsın. Cheat row yok.",
             ]
         )
     )

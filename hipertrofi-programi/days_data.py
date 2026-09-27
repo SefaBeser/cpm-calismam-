@@ -2,11 +2,13 @@
 
 DAY1 = {
     "title": "4. GÜN 1 — SIRT & BICEPS A",
-    "sub": "Öncelik: lat genişliği, sırt kalınlığı  ·  65–75 dk  ·  keyif aldığın güne en yakın gün",
+    "sub": "Pulldown + 3 row  ·  70–80 dk  ·  kol hareketleri aynı",
     "intro": (
-        "Bu, yaptığın sırt–biceps gününün kanıta göre sadeleştirilmiş hali. Lat pulldown tam ROM "
-        "ile kalır [9,17]. Cheat row, drop ve FST-7 yok; mekanik gerilim asıl sürücüdür [20,29]. "
-        "Göğüs bu günde yok — itiş Gün 2 ve Gün 5’tedir ki sırt performansın düşmesin [19]."
+        "Sırt hareketleri senin listen: lat pulldown, barbell row, göğüs destekli row, tek kol "
+        "DB row. Kablo row ve düz kol pulldown yok. Üç row da yatay çekiş — çeşit şart değil, "
+        "fark destek türü [1]. Barbell row, karşılaştırılan row’lar içinde en yüksek lomber "
+        "kompresyonu verir [14]; bu yüzden pulldown’dan hemen sonra, cheat’siz ve RIR 2–3 ile "
+        "yapılır. Biceps günün sonundaki curl’ler aynı kalır. Göğüs bu günde yok."
     ),
     "ex": [
         {
@@ -28,6 +30,26 @@ DAY1 = {
             "grade": "A (ROM, sıklık) + C (tutuş EMG).",
         },
         {
+            "name": "Barbell row (önden, bel nötr)",
+            "sets": "3",
+            "reps": "6–10",
+            "rest": "2,5–3 dk",
+            "rir": "2–3",
+            "target": "Üst sırt, lat, erektör",
+            "why": (
+                "Serbest ağırlık yatay çekiş; sırt kalınlığı için yükü taşır. Fenwick: ayakta öne "
+                "eğik row, destekli varyantlardan daha yüksek lomber kompresyon üretir [14]. "
+                "Pulldown’dan sonra, bel henüz taze iken yapılır. Cheat / ‘lat için kambur’ yok "
+                "[29]. İlk haftalar ego kilo yok."
+            ),
+            "cues": (
+                "Diz az kırık, gövde ~30–45°. Bel nötr, göğüs açık. Bar alt kaburga / kalça üstüne. "
+                "Sırt yuvarlanınca set biter, kilo düşer."
+            ),
+            "swap": "Bel rahatsızsa bu 3 seti göğüs destekliye ekle. Pendlay yalnızca bel nötrse.",
+            "grade": "A (hacim) + C (lomber yük [14]).",
+        },
+        {
             "name": "Göğüs destekli row (chest-supported / makine)",
             "sets": "3",
             "reps": "8–12",
@@ -35,44 +57,29 @@ DAY1 = {
             "rir": "1–2",
             "target": "Orta trap, romboid, lat, arka deltoid",
             "why": (
-                "Yatay çekiş kalınlık için. Ayakta öne eğik row, karşılaştırılan üç row içinde en "
-                "yüksek lomber kompresyonu verir [14]. Pelvis önde durduğu için destekli varyant "
-                "aynı çekişi daha düşük bel yüküyle verir."
+                "Aynı yatay çekişi barbell’den daha düşük bel yüküyle verir [14]. Bar’dan sonra "
+                "kalınlık hacmini tamamlar; pelvis önde durduğu için destekli varyant burada asıl "
+                "kalite setidir."
             ),
             "cues": "Göğüs yastığa yapışık. Çekiş dirsekle. Cheat yok. RIR 1–2 [6,7].",
-            "swap": "Chest-supported T-bar, seated machine row. Barbell row yalnızca bel nötrse.",
+            "swap": "Chest-supported T-bar, seated machine row.",
             "grade": "A (çekiş hacmi) + C (omurga biyomekaniği).",
         },
         {
-            "name": "Tek kol kablo row",
+            "name": "Tek kol dumbbell row (bench destekli)",
             "sets": "3",
             "reps": "8–10 / kol",
             "rest": "90–120 sn",
             "rir": "1–2",
-            "target": "Lat (kalça hizası çekiş)",
+            "target": "Lat, orta sırt (tek taraf)",
             "why": (
-                "Orijinal programın en mantıklı çekişlerinden; kaldı. Tek kol asimetriyi görünür kılar "
-                "ve kablo lat uzunken gerilimi kesmez [9,14]. ‘Lat için kambur’ bel fleksiyonu değildir."
+                "Kablo row’un serbest ağırlık karşılığı. Tek kol asimetriyi görünür kılar. Bench’e "
+                "el–diz destek, ayakta iki elle DB row’dan daha az bel ister [14]. ‘Lat için kambur’ "
+                "bel fleksiyonu değildir."
             ),
-            "cues": "Bel nötr, el kalça yanına. Sol ve sağ ayrı sayılır.",
-            "swap": "Bench destekli tek kol dumbbell row.",
+            "cues": "Bir el ve aynı taraf diz bench’te. Bel nötr, çekiş kalça hizasına. Sol ve sağ ayrı sayılır.",
+            "swap": "Kablo tek kol row. Ayakta desteksiz DB row yok.",
             "grade": "A + C [14].",
-        },
-        {
-            "name": "Düz kolla kablo pulldown (yüksek kablo)",
-            "sets": "2",
-            "reps": "10–12",
-            "rest": "75 sn",
-            "rir": "1–2",
-            "target": "Lat / teres (omuz ekstansiyonu)",
-            "why": (
-                "Orijinal rope pullover’ın drop’suz hali. Barbell pullover EMG’si pektoralis lehinedir "
-                "[18]; bu yüzden yüksek kablodan düz kol omuz ekstansiyonu olarak yapılır. RCT yok; "
-                "kanıt yetersizse pulldown’a 1 set ekle."
-            ),
-            "cues": "Dirsek neredeyse kilit. İpi uyluğa indir. Drop yok [20].",
-            "swap": "Ek lat pulldown seti.",
-            "grade": "C/D [18].",
         },
         {
             "name": "Dumbbell supinated curl",

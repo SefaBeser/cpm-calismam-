@@ -457,7 +457,7 @@ def build_story():
                 [
                     "Lat / V kesiti",
                     "Arkadan sırt ve bel yakın genişlikte",
-                    "Pulldown tam ROM + kablo row",
+                    "Pulldown tam ROM + 3 row (bar, destekli, DB)",
                     "[9,17]",
                 ],
                 [
@@ -469,7 +469,7 @@ def build_story():
                 [
                     "Bel güvenliği",
                     "Pelvis önde, cheat row riski",
-                    "Göğüs destekli row, RIR, nötr bel",
+                    "Destekli + DB row; barbell RIR 2–3, cheat yok",
                     "[14,6]",
                 ],
             ],
@@ -494,7 +494,7 @@ def build_story():
                 simple_table(
                     ["Gün", "Odak", "Örnek yerleşme"],
                     [
-                        ["1  Sırt & biceps A", "Pulldown, destekli row, curl", "Pazartesi"],
+                        ["1  Sırt & biceps A", "Pulldown, barbell/DB/destekli row, curl", "Pazartesi"],
                         ["2  Göğüs & omuz A", "Incline, lateral, fly, overhead tri", "Salı"],
                         ["3  Bacak", "Squat, press, curl, extension, hyper", "Çarşamba"],
                         ["4  Sırt & biceps B", "V-bar pulldown, seated row, arka omuz", "Perşembe"],
@@ -560,8 +560,9 @@ def build_story():
     story.append(P("<b>Seans hacmi</b>"))
     story.append(
         P(
-            "Üst günler ≈ 14–18, bacak günü 5 hareket / 15 set (~55–70 dk). Enerji biterse "
-            "extension’ı 2 sete indir; squat, press, curl ve hyper kalsın [2]."
+            "Üst günler ≈ 14–18, bacak günü 5 hareket / 15 set (~55–70 dk). Bacak enerjin biterse "
+            "extension’ı 2 sete indir. Gün 1 bel yorulursa barbell row’u 2 sete indir; pulldown "
+            "ve göğüs destekli kalsın [2,14]."
         )
     )
 
@@ -619,7 +620,7 @@ def build_story():
         simple_table(
             ["Kas", "Doğrudan set/hafta", "Hedef bant [1–3]", "Not"],
             [
-                ["Lat / üst sırt", "14–16", "10–16", "2 çekiş günü; FST-7 yok"],
+                ["Lat / üst sırt", "15–18", "10–20", "Gün 1: pulldown 3 + 3 row; Gün 4: 3+3"],
                 ["Göğüs", "10", "8–12", "Incline 3 + fly 2 + press 3 + crossover 2"],
                 ["Yan deltoid", "7 + press", "8–12", "Lateral 4+3"],
                 ["Arka deltoid", "6 + row", "6–10", "Face pull + reverse pec deck"],
@@ -637,9 +638,9 @@ def build_story():
     story.append(Spacer(1, 2.2 * mm))
     story.append(
         P(
-            "Bacak 5 harekete indirildi (kullanıcı tercihi). Calf ve karın bu günde yok. 4 günlük "
-            "haftada sırt ve göğüs karma günle 2× kalır; yan omuz ~4+3 yerine ~4+3 (karma 3 set) "
-            "benzer bantta durur."
+            "Bacak 5 harekete, Gün 1 sırtı 4 çekişe indirildi (kullanıcı tercihi). Calf ve karın "
+            "bacak gününde yok. 4 günlük haftada sırt ve göğüs karma günle 2× kalır; yan omuz "
+            "~4+3 yerine ~4+3 (karma 3 set) benzer bantta durur."
         )
     )
 
