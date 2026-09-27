@@ -321,7 +321,8 @@ def evening_posture_card():
             "Duruş ‘bir hareketle düzelmez’. Masa başı günü göğsü ve kalça önünü kısaltır, küreği ve "
             "kalçayı uyuşturur. Bu kart germe + düşük yük. Salon zaten row, face pull, reverse pec, "
             "squat ve hyperextension veriyor; akşam ekstra bar yok. Yemekten 20–30 dk sonra veya "
-            "duş öncesi. Pazartesi barbell row belin doluysa 3 ve 6’yı atla, 1–2–4–5 kalsın."
+            "duş öncesi. Pazartesi barbell row belin doluysa 3 ve 6’yı atla, 1–2–4–5 kalsın. "
+            "Kısa gösterim videoları: klasör <b>durus-videolari/</b> (6 dikey klip)."
         ),
         simple_table(
             ["#", "Hareket", "Doz", "Neden"],
