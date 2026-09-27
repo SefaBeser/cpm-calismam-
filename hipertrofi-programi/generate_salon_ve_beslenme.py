@@ -245,10 +245,10 @@ def build_training():
             ["Gün", "Seans", "Süre", "Not"],
             [
                 ["Pazartesi", "Sırt & biceps A", "70–80 dk", "Pulldown + 3 row + curl"],
-                ["Salı", "Göğüs & omuz A", "65–75 dk", "Incline + lateral"],
+                ["Salı", "Göğüs & omuz A", "70–80 dk", "Incline + düz press + lateral"],
                 ["Çarşamba", "Bacak (5 hareket)", "55–70 dk", "ATLAMAYIN"],
-                ["Perşembe", "Sırt & biceps B", "60–70 dk", "İkinci çekiş"],
-                ["Cuma", "Göğüs & omuz B", "60–70 dk", "4 günde bu gün düşer"],
+                ["Perşembe", "Sırt & biceps B", "70–80 dk", "Kablo çekiş + arka omuz"],
+                ["Cuma", "Göğüs & omuz B", "70–80 dk", "4 günde bu gün düşer"],
                 ["Cmt–Paz", "İstirahat", "—", "7–10 bin adım"],
             ],
             [32 * mm, 42 * mm, 28 * mm, 76 * mm],
@@ -274,6 +274,7 @@ def build_training():
                 "<b>İlerleme:</b> bandın üstünü (ör. 3×12) bitirince kilo ekle, tekrar 8’e dön.",
                 "<b>Bacak enerjin biterse:</b> extension’ı 2 sete in; squat, press, curl, hyper kalsın.",
                 "<b>Gün 1 bel yorulursa:</b> barbell row’u 2 sete in; pulldown ve göğüs destekli kalsın. Cheat row yok.",
+                "<b>Üst gün uzarsa:</b> Gün 4 düz kol pulldown’ı, Gün 5 crossover’ı kes. İlk iki compound kalsın.",
             ]
         )
     )
