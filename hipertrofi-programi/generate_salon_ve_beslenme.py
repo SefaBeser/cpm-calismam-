@@ -248,7 +248,7 @@ def build_training():
                 ["Salı", "Göğüs & omuz A", "70–80 dk", "Incline + düz press + lateral"],
                 ["Çarşamba", "Bacak (5 hareket)", "55–70 dk", "ATLAMAYIN"],
                 ["Perşembe", "Sırt & biceps B", "70–80 dk", "Kablo çekiş + arka omuz"],
-                ["Cuma", "Göğüs & omuz B", "70–80 dk", "4 günde bu gün düşer"],
+                ["Cuma", "Göğüs & omuz B", "65–75 dk", "4 günde bu gün düşer"],
                 ["Cmt–Paz", "İstirahat", "—", "7–10 bin adım"],
             ],
             [32 * mm, 42 * mm, 28 * mm, 76 * mm],
@@ -270,11 +270,11 @@ def build_training():
             [
                 "<b>RIR:</b> 2 = düzgün formla 2 tekrar daha yapabilirdim. Çok eklemli 1–3, izolasyon son set 0–1.",
                 "<b>Dinlenme:</b> compound 2,5–3 dk, izolasyon 75–90 sn.",
-                "<b>ROM:</b> pulldown tepede geril, squat/press’te bel yuvarlanmasın, fly’da göğsü aç. Cheat yok.",
+                "<b>ROM:</b> pulldown tepede geril, squat/press’te bel yuvarlanmasın, pec deck’te göğsü aç. Cheat yok.",
                 "<b>İlerleme:</b> bandın üstünü (ör. 3×12) bitirince kilo ekle, tekrar 8’e dön.",
                 "<b>Bacak enerjin biterse:</b> extension’ı 2 sete in; squat, press, curl, hyper kalsın.",
                 "<b>Gün 1 bel yorulursa:</b> barbell row’u 2 sete in; pulldown ve göğüs destekli kalsın. Cheat row yok.",
-                "<b>Üst gün uzarsa:</b> Gün 4 düz kol pulldown’ı, Gün 5 crossover’ı kes. İlk iki compound kalsın.",
+                "<b>Üst gün uzarsa:</b> Gün 4 hammer’ı, Gün 5 pec deck’in 3. setini kes. İlk iki compound kalsın.",
             ]
         )
     )

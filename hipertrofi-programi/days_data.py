@@ -161,7 +161,7 @@ DAY2 = {
             "target": "Yan (orta) deltoid",
             "why": (
                 "Omuz genişliği belin daha dar görünmesini sağlar. Orijinal programda yan omuz "
-                "~4 set/haftaydı; hedef ~10+ ağır set [1,2]. Bu 4 set + Gün 5’teki 3 set ≈ 7 doğrudan "
+                "~4 set/haftaydı; hedef ~10+ ağır set [1,2]. Bu 4 set + Gün 5’teki 4 set ≈ 8 doğrudan "
                 "+ press katkısı. Lateral, front raise’den daha seçici [16]."
             ),
             "cues": "Kol ~30° önde, 90°yi aşma, gövde sallanmasın.",
@@ -169,19 +169,21 @@ DAY2 = {
             "grade": "A (hacim) + C (EMG). Lateral vs press hipertrofi RCT’si yok.",
         },
         {
-            "name": "Kablo fly (gerilme vurgulu)",
+            "name": "Pec deck",
             "sets": "2",
             "reps": "12–15",
             "rest": "75–90 sn",
             "rir": "0–2",
             "target": "Pektoralis (uzun kas boyu)",
             "why": (
-                "İki press’in yetiştiremediği uzun-kas-boyu uyaranı [9,10]. Pec deck Gün 5’te ayrı "
-                "durur ki aynı izolasyon kopyalanmasın. Tükenişe en yakın set burada olabilir [6]."
+                "Kablo fly’ın makine karşılığı. ACSM ekipman türünün hipertrofiyi tutarlı "
+                "değiştirmediğini belirtir [1]. Açık pozisyondaki gerilme, kısa ‘sıkış’tan üstün "
+                "veya eşittir [9,10]. Gün 5’te pec deck tekrarlanır (2× sıklık); kopya değil, "
+                "lateral raise ile aynı mantık."
             ),
-            "cues": "Dirsek hafif kırık, omuz öne savrulmasın. 3 sn negatif şart değil [1].",
-            "swap": "Pec deck yalnızca kablo yoksa (Gün 5’te pec deck varsa crossover yap).",
-            "grade": "A (hacim + ROM). Fly vs press farkı net değildir.",
+            "cues": "Kürek arkada, dirsek hafif kırık. Omuz öne gitmesin. Gerilmede dur, gövde kıpırdamasın.",
+            "swap": "Kablo fly yalnızca pec deck yoksa.",
+            "grade": "A (hacim + ROM).",
         },
         {
             "name": "Face pull (ip, yüz hizası)",
@@ -318,23 +320,24 @@ DAY3 = {
 
 DAY4 = {
     "title": "7. GÜN 4 — SIRT & BICEPS B",
-    "sub": "6 hareket  ·  ikinci çekiş, Gün 1’in kopyası değil  ·  70–80 dk",
+    "sub": "6 hareket  ·  pulldown + DB row + hammer  ·  70–80 dk",
     "intro": (
-        "Sırtı haftada 2 kez uyarmak için [4,5]. Gün 1 serbest ağırlık row; bu gün kablo: nötr "
-        "pulldown, seated row, tek kol row, düz kol pulldown + arka deltoid. Biceps hâlâ Gün 1’de "
-        "daha dolu; burada 2 set curl yeter. Enerji biterse düz kol pulldown 2 sette kalır veya kesilir."
+        "Sırtı haftada 2 kez uyarmak için [4,5]. Tek kol kablo yerine Gün 1’deki bench destekli "
+        "DB row (2× sıklık; çeşit şart değil [1,5]). Düz kol pulldown çıktı — kanıtı zayıf [18]; "
+        "lat dozu pulldown’a +1 set olarak gitti. 6. hareket hammer curl: Gün 1 ile aynı kol "
+        "paterni. Enerji biterse hammer kesilir; pulldown 4 set kalır."
     ),
     "ex": [
         {
             "name": "Nötr tutuş lat pulldown (V-bar)",
-            "sets": "3",
+            "sets": "4",
             "reps": "8–12",
             "rest": "2,5–3 dk",
             "rir": "1–2",
             "target": "Latissimus, biceps",
             "why": (
-                "Tutuş genişliği lat EMG’sini büyük değiştirmez [17]; nötr tutuş omuz rahatlığı ve "
-                "çeşit için. İkinci uyaran, aynı hareketin kopyasından daha sürdürülebilirdir."
+                "Tutuş genişliği lat EMG’sini büyük değiştirmez [17]. Düz kol pulldown kesildi; "
+                "1 set buraya eklendi (3→4). 4. set RIR 2; form düşünce kes."
             ),
             "cues": "Tam gerilme, göğüs açık. 1–2 RIR.",
             "swap": "Pronated pulldown (Gün 1’den farklı tutuş yeter).",
@@ -353,34 +356,19 @@ DAY4 = {
             "grade": "A + C [14].",
         },
         {
-            "name": "Tek kol kablo row",
-            "sets": "2",
+            "name": "Tek kol dumbbell row (bench destekli)",
+            "sets": "3",
             "reps": "8–10 / kol",
             "rest": "90–120 sn",
             "rir": "1–2",
-            "target": "Lat (kalça hizası çekiş)",
+            "target": "Lat, orta sırt (tek taraf)",
             "why": (
-                "Gün 1’deki DB row’un kablo karşılığı; asimetriyi görünür kılar, lat uzunken gerilimi "
-                "kesmez [9,14]. 2 set: Gün 1 zaten 12 çekiş seti taşıyor, bu günü 20+ sete şişirme."
+                "Kablo row yerine senin DB row’un. Gün 1 ile aynı hareket; 2× sıklık hipertrofide "
+                "çeşitten daha tutarlıdır [4,5]. Bench el–diz destek, ayakta desteksiz DB row yok [14]."
             ),
-            "cues": "Bel nötr, el kalça yanına. Sol ve sağ ayrı sayılır. ‘Lat için kambur’ yok.",
-            "swap": "Bench destekli tek kol DB row (Gün 1’de yaptıysan kablo kalır).",
+            "cues": "Bir el ve aynı taraf diz bench’te. Bel nötr, çekiş kalça hizasına. Sol ve sağ ayrı sayılır.",
+            "swap": "Kablo tek kol row yalnızca bench yoksa.",
             "grade": "A + C [14].",
-        },
-        {
-            "name": "Düz kolla kablo pulldown (yüksek kablo)",
-            "sets": "2",
-            "reps": "10–12",
-            "rest": "75 sn",
-            "rir": "1–2",
-            "target": "Lat / teres (omuz ekstansiyonu)",
-            "why": (
-                "Gün 1’den çıkan lat izolasyonu buraya alındı. Barbell pullover EMG’si pektoralis "
-                "lehinedir [18]; yüksek kablodan düz kol omuz ekstansiyonu olarak yapılır."
-            ),
-            "cues": "Dirsek neredeyse kilit. İpi uyluğa indir. Drop yok [20].",
-            "swap": "Enerji biterse kes; pulldown’a 1 set ekleme zorunlu değil.",
-            "grade": "C/D [18].",
         },
         {
             "name": "Reverse pec deck veya reverse fly",
@@ -404,21 +392,36 @@ DAY4 = {
             "rest": "75 sn",
             "rir": "1–2",
             "target": "Biceps",
-            "why": "Gün 1’deki 5 set + bu 2 set ≈ 7 doğrudan + çekişler ≈ 10–12/hafta [2]. Fazla curl yok.",
+            "why": "Gün 1’deki 5 set + bu 2 set + hammer 2 ≈ 9 doğrudan + çekişler ≈ 10–12/hafta [2].",
             "cues": "Dirsek sabit, tempo kontrollü.",
             "swap": "DB curl (Gün 1’den farklı açı, ör. incline curl).",
             "grade": "A (hacim).",
+        },
+        {
+            "name": "Hammer curl",
+            "sets": "2",
+            "reps": "10–12",
+            "rest": "75 sn",
+            "rir": "1–2",
+            "target": "Brachialis, brachioradialis",
+            "why": (
+                "Düz kol pulldown’ın ikamesi olarak 6. hareket. Lat değil; o doz pulldown’daki "
+                "+1 settedir. Hammer Gün 1’de var — 2× sıklık, drop yok [20]."
+            ),
+            "cues": "Başparmak yukarı, sallanma yok.",
+            "swap": "Rope hammer. Enerji biterse bu 2 seti kes; pulldown 4 kalsın.",
+            "grade": "A [20] + C (anatomi).",
         },
     ],
 }
 
 DAY5 = {
     "title": "8. GÜN 5 — GÖĞÜS & OMUZ B",
-    "sub": "6 hareket  ·  press + omuz + pec deck  ·  70–80 dk",
+    "sub": "5 hareket  ·  crossover yok; pec + lateral ekstra  ·  65–75 dk",
     "intro": (
-        "Göğüs ve yan omuzu 2× tamamlar [4,5]. Gün 2’de incline + düz press var; burada makine "
-        "press ikinci düz uyaran, shoulder press dikey itiştir. Pec deck, Salı’daki kablo fly’dan "
-        "ayrı izolasyondur. 4 günlük haftada bu gün düşer; yerine ‘üst karma’ yapılır."
+        "Göğüs ve yan omuzu 2× tamamlar [4,5]. Crossover çıktı: aynı göğüs izolasyonu pec deck’te "
+        "zaten var (Gün 2+5). 2 seti pec deck (+1) ve lateral’e (+1) bölündü — yan omuz senin "
+        "görsel önceliğin [16]. 4 günlük haftada bu gün düşer; yerine ‘üst karma’ yapılır."
     ),
     "ex": [
         {
@@ -453,46 +456,34 @@ DAY5 = {
         },
         {
             "name": "Kablo veya dumbbell lateral raise",
-            "sets": "3",
+            "sets": "4",
             "reps": "12–15",
             "rest": "75–90 sn",
             "rir": "1–2",
             "target": "Yan deltoid",
-            "why": "Gün 2’deki 4 setin ikinci yarısı [2,16]. Yorgunlukta kilo düşer, form düşmez.",
+            "why": (
+                "Gün 2’deki 4 setin ikinci yarısı + crossover’dan gelen 1 set [2,16]. "
+                "Yorgunlukta kilo düşer, form düşmez."
+            ),
             "cues": "Gün 2 ile aynı teknik.",
             "swap": "Makine lateral.",
             "grade": "A + C [16].",
         },
         {
             "name": "Pec deck",
-            "sets": "2",
+            "sets": "3",
             "reps": "12–15",
             "rest": "75 sn",
             "rir": "0–2",
             "target": "Pektoralis (uzun kas boyu)",
             "why": (
-                "Gün 2 kablo fly’dan farklı makine izolasyonu. Açık pozisyondaki gerilme, kısa "
-                "‘sıkış’tan üstün veya eşittir [9,10]. 2 set: bu günde zaten press + crossover var."
+                "Gün 2 pec deck ile 2× sıklık [4,5]. Crossover’ın 1 seti buraya eklendi (2→3). "
+                "Açık pozisyondaki gerilme kısa ‘sıkış’tan üstün veya eşittir [9,10]. Enerji "
+                "biterse 3. seti kes."
             ),
             "cues": "Kürek arkada, dirsek hafif kırık. Omuz öne gitmesin. Üstte 0,5 sn şart değil.",
-            "swap": "Kablo fly (Gün 2’de yaptıysan crossover ile devam et).",
+            "swap": "Kablo fly yalnızca pec deck yoksa.",
             "grade": "A (hacim + ROM).",
-        },
-        {
-            "name": "Cable crossover (yüksekten alçağa)",
-            "sets": "2",
-            "reps": "12–15",
-            "rest": "75 sn",
-            "rir": "0–2",
-            "target": "Pektoralis (alt/orta lifler)",
-            "why": (
-                "Pec deck’ten farklı kablo açısı. Haftalık göğüs ≈ incline 3 + düz 3 + fly 2 + "
-                "press 3 + pec 2 + crossover 2 ≈ 15 set; 10–20 bandının üst yarısı [1,2]. "
-                "Enerji biterse bu 2 set kesilir, pec deck kalır."
-            ),
-            "cues": "Gerilme vurgulu, omuz öne gitmesin. Gövde hafif öne.",
-            "swap": "Alçaktan yükseğe crossover. Yoksa pec deck’e 1 set ekle.",
-            "grade": "A (hacim).",
         },
         {
             "name": "Kablo pushdown (V-bar veya ip)",
